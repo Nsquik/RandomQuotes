@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let betterCallSaulStore = QuoteStore()
+    let breakingBadStore = QuoteStore()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+            TabView {
+                RandomQuoteView(quoteStore: betterCallSaulStore, series: .betterCallSaul)
+                    .tabItem{Label("Better Call Saul", systemImage: "briefcase")}
+                RandomQuoteView(quoteStore: breakingBadStore, series: .breakingBad)
+                    .tabItem{Label("Breaking bad", systemImage: "briefcase")}
+            }
+            .onAppear{
+                UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+            }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }

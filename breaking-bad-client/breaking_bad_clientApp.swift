@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct breaking_bad_clientApp: App {
+    let quoteStore = QuoteStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
