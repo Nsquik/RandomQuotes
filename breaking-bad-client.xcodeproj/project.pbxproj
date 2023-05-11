@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B04662CF2A0D84AE00624FFC /* GameOfThrones.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */; };
 		B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B672A06F30300931D3E /* FetchableObject.swift */; };
 		B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* QuoteStore.swift */; };
 		B05E0B702A06FAFE00931D3E /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */; };
-		B05E0B732A0ABBB300931D3E /* BetterCallSaulApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B722A0ABBB300931D3E /* BetterCallSaulApi.swift */; };
+		B05E0B732A0ABBB300931D3E /* BetterCallSaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */; };
 		B05E0B762A0AC2CA00931D3E /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B752A0AC2CA00931D3E /* Series.swift */; };
 		B0A5291B2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5291A2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift */; };
 		B0A5291D2A01B5CE005EA3F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5291C2A01B5CE005EA3F1 /* ContentView.swift */; };
@@ -22,7 +23,7 @@
 		B0A529452A01B6A3005EA3F1 /* samplecharacter.json in Resources */ = {isa = PBXBuildFile; fileRef = B0A529442A01B6A3005EA3F1 /* samplecharacter.json */; };
 		B0A5294A2A01BD95005EA3F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A529492A01BD95005EA3F1 /* Quote.swift */; };
 		B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294B2A01C525005EA3F1 /* Character.swift */; };
-		B0A5294E2A01C69B005EA3F1 /* RestApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* RestApiRequest.swift */; };
+		B0A5294E2A01C69B005EA3F1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfThrones.swift; sourceTree = "<group>"; };
 		B05E0B672A06F30300931D3E /* FetchableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableObject.swift; sourceTree = "<group>"; };
 		B05E0B692A06F3C600931D3E /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
 		B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
-		B05E0B722A0ABBB300931D3E /* BetterCallSaulApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCallSaulApi.swift; sourceTree = "<group>"; };
+		B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCallSaul.swift; sourceTree = "<group>"; };
 		B05E0B752A0AC2CA00931D3E /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		B0A529172A01B5CE005EA3F1 /* breaking-bad-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "breaking-bad-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A5291A2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breaking_bad_clientApp.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		B0A529442A01B6A3005EA3F1 /* samplecharacter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = samplecharacter.json; sourceTree = "<group>"; };
 		B0A529492A01BD95005EA3F1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		B0A5294B2A01C525005EA3F1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		B0A5294D2A01C69B005EA3F1 /* RestApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiRequest.swift; sourceTree = "<group>"; };
+		B0A5294D2A01C69B005EA3F1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,18 +113,11 @@
 		B05E0B712A0ABB9F00931D3E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B05E0B742A0ABCEC00931D3E /* Network */,
+				B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */,
+				B0A5294D2A01C69B005EA3F1 /* Network.swift */,
+				B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		B05E0B742A0ABCEC00931D3E /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				B0A5294D2A01C69B005EA3F1 /* RestApiRequest.swift */,
-				B05E0B722A0ABBB300931D3E /* BetterCallSaulApi.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		B0A5290E2A01B5CE005EA3F1 = {
@@ -333,8 +328,9 @@
 				B0A5291B2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift in Sources */,
 				B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */,
 				B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */,
-				B0A5294E2A01C69B005EA3F1 /* RestApiRequest.swift in Sources */,
-				B05E0B732A0ABBB300931D3E /* BetterCallSaulApi.swift in Sources */,
+				B0A5294E2A01C69B005EA3F1 /* Network.swift in Sources */,
+				B04662CF2A0D84AE00624FFC /* GameOfThrones.swift in Sources */,
+				B05E0B732A0ABBB300931D3E /* BetterCallSaul.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

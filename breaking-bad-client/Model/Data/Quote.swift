@@ -41,9 +41,9 @@ struct Quote: Decodable {
     static func getRandom(series: Series) async throws -> Quote? {
         switch series {
         case .betterCallSaul:
-            return try await BetterCallSaulApi.randomQuote
-        case .breakingBad:
-            return try await BetterCallSaulApi.randomQuote
+            return try await BetterCallSaul.randomQuote
+        case .gameOfThrones:
+            return try await BetterCallSaul.randomQuote
         }
     }
 }

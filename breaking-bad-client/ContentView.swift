@@ -13,9 +13,9 @@ struct ContentView: View {
     var body: some View {
             TabView {
                 RandomQuoteView(quoteStore: betterCallSaulStore, series: .betterCallSaul)
-                    .tabItem{Label("Better Call Saul", systemImage: "briefcase")}
-                RandomQuoteView(quoteStore: breakingBadStore, series: .breakingBad)
-                    .tabItem{Label("Breaking bad", systemImage: "briefcase")}
+                    .tabItem{Label(Series.betterCallSaul.getFullName(), systemImage: "briefcase")}
+                RandomQuoteView(quoteStore: breakingBadStore, series: .gameOfThrones)
+                    .tabItem{Label(Series.gameOfThrones.getFullName(), systemImage: "briefcase")}
             }
             .onAppear{
                 UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()

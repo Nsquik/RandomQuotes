@@ -20,7 +20,7 @@ enum NetworkError: Error {
     case decodingError(error: Error)
 }
 
-struct ApiRequest {
+struct Network {
   static func getRequest<T: Decodable>(_ url: URL) async throws -> Result<T, Error> {
     let (data, response) = try await URLSession.shared.data(from: url)
     guard let response = response as? HTTPURLResponse, response.statusCode == 200

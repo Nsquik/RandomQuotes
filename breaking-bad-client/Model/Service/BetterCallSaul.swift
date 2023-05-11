@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BetterCallSaulApi {
+struct BetterCallSaul {
     static let baseURL = URL(string: "https://bettercallsaul-api.onrender.com/")!
 
     enum Content {
@@ -24,13 +24,13 @@ struct BetterCallSaulApi {
         guard let url: URL = {
             switch on {
             case .character(let name):
-                let characterUrl = BetterCallSaulApi.baseURL.appendingPathComponent("characters")
+                let characterUrl = BetterCallSaul.baseURL.appendingPathComponent("characters")
                 var characterComponent = URLComponents(url: characterUrl, resolvingAgainstBaseURL: true)
                 let characterQueryItem = URLQueryItem(name: "name", value: name)
                 characterComponent?.queryItems = [characterQueryItem]
                 return (characterComponent?.url)
             case .randomQuote:
-                return BetterCallSaulApi.baseURL.appendingPathComponent("quotes/random")
+                return BetterCallSaul.baseURL.appendingPathComponent("quotes/random")
             }
         }() else {
             throw BetterCallSaulApiError.urlParsingError
@@ -42,7 +42,7 @@ struct BetterCallSaulApi {
     static var randomQuote: Quote? {
         get async throws {
             let url = try self.getRequestUrl(on: .randomQuote)
-            if let quote: Quote = try await ApiRequest.getRequest(url).get()
+            if let quote: Quote = try await Network.getRequest(url).get()
             {
                 return quote
             }
@@ -52,7 +52,7 @@ struct BetterCallSaulApi {
     
     static func getCharacter(name: String) async throws -> Character? {
         let url = try self.getRequestUrl(on: .character(name: name))
-        if let character: Character = try await ApiRequest.getRequest(url).get(){
+        if let character: Character = try await Network.getRequest(url).get(){
             return character
         }
         return nil

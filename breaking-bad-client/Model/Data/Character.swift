@@ -41,9 +41,9 @@ struct Character: Decodable {
     static func getCharacter(name: String, series: Series) async throws -> Character? {
             switch series {
             case .betterCallSaul:
-                return try await BetterCallSaulApi.getCharacter(name: name)
-            case .breakingBad:
-                return try await BetterCallSaulApi.getCharacter(name: name)
+                return try await BetterCallSaul.getCharacter(name: name)
+            case .gameOfThrones:
+                return try await BetterCallSaul.getCharacter(name: name)
             }
     }
 }
