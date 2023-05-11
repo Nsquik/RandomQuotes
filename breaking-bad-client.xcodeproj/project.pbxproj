@@ -23,7 +23,7 @@
 		B0A529452A01B6A3005EA3F1 /* samplecharacter.json in Resources */ = {isa = PBXBuildFile; fileRef = B0A529442A01B6A3005EA3F1 /* samplecharacter.json */; };
 		B0A5294A2A01BD95005EA3F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A529492A01BD95005EA3F1 /* Quote.swift */; };
 		B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294B2A01C525005EA3F1 /* Character.swift */; };
-		B0A5294E2A01C69B005EA3F1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* Network.swift */; };
+		B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* Fetch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		B0A529442A01B6A3005EA3F1 /* samplecharacter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = samplecharacter.json; sourceTree = "<group>"; };
 		B0A529492A01BD95005EA3F1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		B0A5294B2A01C525005EA3F1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		B0A5294D2A01C69B005EA3F1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B0A5294D2A01C69B005EA3F1 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +113,9 @@
 		B05E0B712A0ABB9F00931D3E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */,
-				B0A5294D2A01C69B005EA3F1 /* Network.swift */,
 				B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */,
+				B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */,
+				B0A5294D2A01C69B005EA3F1 /* Fetch.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 				B0A5291B2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift in Sources */,
 				B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */,
 				B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */,
-				B0A5294E2A01C69B005EA3F1 /* Network.swift in Sources */,
+				B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */,
 				B04662CF2A0D84AE00624FFC /* GameOfThrones.swift in Sources */,
 				B05E0B732A0ABBB300931D3E /* BetterCallSaul.swift in Sources */,
 			);

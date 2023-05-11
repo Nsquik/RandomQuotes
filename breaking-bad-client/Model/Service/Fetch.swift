@@ -8,24 +8,26 @@
 import Foundation
 import SwiftUI
 
-enum NetworkStatus {
-  case idle
-  case loading
-  case success
-  case error
+protocol Fetchable {
+    associatedtype Content
+    
+    static var baseURL: URL { get }
+    static func getRequestUrl(on: Content) throws -> URL
 }
 
-enum NetworkError: Error {
+
+
+enum FetchError: Error {
     case invalidResponse(response: URLResponse)
     case decodingError(error: Error)
 }
 
-struct Network {
+struct Fetch {
   static func getRequest<T: Decodable>(_ url: URL) async throws -> Result<T, Error> {
     let (data, response) = try await URLSession.shared.data(from: url)
     guard let response = response as? HTTPURLResponse, response.statusCode == 200
     else {
-        return .failure(NetworkError.invalidResponse(response: response))
+        return .failure(FetchError.invalidResponse(response: response))
     }
 
     do {
@@ -33,7 +35,7 @@ struct Network {
       let object = try decoder.decode(T.self, from: data)
       return .success(object)
     } catch {
-      return .failure(NetworkError.decodingError(error: error))
+      return .failure(FetchError.decodingError(error: error))
         
     }
   }

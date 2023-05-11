@@ -7,9 +7,9 @@
 
 import Foundation
 
-class QuoteStore: FetchableObject {
-    @Published var quote: Quote?
-    @Published var author: Character?
+class QuoteStore<T: QuoteSource, D: CharacterSource>: FetchableObject {
+    @Published var quote: Quote<T>?
+    @Published var author: Character<D>?
     @Published var series: Series?
     
     func clear() {
@@ -32,12 +32,12 @@ class QuoteStore: FetchableObject {
         }
         
         do {
-            guard let currentQuote = try await Quote.getRandom(series: currentSeries) else {
+            guard let currentQuote = try await Quote<T>.random else {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
             
-            guard let character = try await Character.getCharacter(name: currentQuote.author, series: currentSeries) else {
+            guard let character = try await Character<D>.getCharacter(name: currentQuote.author) else {
                 phase = .fail(error: "Failed fetching character")
                 return
             }

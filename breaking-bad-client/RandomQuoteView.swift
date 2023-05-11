@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RandomQuoteView: View {
-    @StateObject var quoteStore: QuoteStore
+struct RandomQuoteView<T: QuoteSource,D: CharacterSource>: View {
+    @StateObject var quoteStore: QuoteStore<T, D>
     @State var series: Series
     
     var body: some View {
@@ -72,7 +72,7 @@ struct RandomQuoteView: View {
         
 struct RandomQuoteView_Previews: PreviewProvider {
             static var previews: some View {
-                let quoteStore = QuoteStore()
+                let quoteStore = QuoteStore<BetterCallSaul, BetterCallSaul>()
                 RandomQuoteView(quoteStore: quoteStore, series: .betterCallSaul)
                     .preferredColorScheme(.dark)
             }

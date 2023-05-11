@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    let betterCallSaulStore = QuoteStore()
-    let breakingBadStore = QuoteStore()
+    let betterCallSaulStore = QuoteStore<BetterCallSaul, BetterCallSaul>()
+    let breakingBadStore = QuoteStore<GameOfThrones, GameOfThrones>()
+    
     var body: some View {
             TabView {
                 RandomQuoteView(quoteStore: betterCallSaulStore, series: .betterCallSaul)
