@@ -12,13 +12,13 @@ class DataStore<TDataSource: DataSource>: FetchableObject {
     @Published var author: Character<TDataSource>?
     @Published var series = TDataSource.series
     
-
+    
     func clear() {
         phase = .initial
         quote = nil
         author = nil
     }
-
+    
     @MainActor
     override func fetchData() async {
         do {
@@ -27,19 +27,15 @@ class DataStore<TDataSource: DataSource>: FetchableObject {
                 return
             }
             
-//            guard let fetchedCharacter = try await Character<TDataSource>.getCharacter(name: fetchedQuote.author) else {
-//                phase = .fail(error: "Failed fetching character")
-//                return
-//            }
+            let fetchedCharacter = try await Character<TDataSource>.getCharacter(name: fetchedQuote.author)
             
-            print(fetchedQuote)
             quote = fetchedQuote
-//            author = fetchedCharacter
+            author = fetchedCharacter
             phase = .success
         } catch {
             print(error)
             phase = .fail(error: error.localizedDescription)
         }
     }
-
+    
 }

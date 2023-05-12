@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var gameOfThronesStore = DataStore<GameOfThrones>()
-    var otherTVShowStore = DataStore<BetterCallSaul>()
+    var breakingBadStore = DataStore<BreakingBad>()
     
     var body: some View {
-            TabView {
-                TabItemView(quoteStore: gameOfThronesStore)
-                    .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "briefcase")}
-                TabItemView(quoteStore: otherTVShowStore)
-                    .tabItem{Label(otherTVShowStore.series.getFullName(), systemImage: "briefcase")}
-            }
-            .onAppear{
-                UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
-            }
+        TabView {
+            TabItemView(quoteStore: gameOfThronesStore)
+                .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "briefcase")}
+            TabItemView(quoteStore: breakingBadStore)
+                .tabItem{Label(breakingBadStore.series.getFullName(), systemImage: "briefcase")}
+        }
+        .onAppear{
+            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+        }
     }
 }
 

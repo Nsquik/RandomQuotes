@@ -15,7 +15,7 @@ enum FetchableObjectPhase {
 }
 
 class FetchableObject: ObservableObject {
-
+    
     @Published var phase: FetchableObjectPhase = .initial
     
     @MainActor
@@ -26,7 +26,7 @@ class FetchableObject: ObservableObject {
         phase = .loading
         await fetchData()
     }
-
+    
     @MainActor
     func refresh() async {
         await fetchData()

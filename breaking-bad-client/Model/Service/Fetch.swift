@@ -23,20 +23,20 @@ enum FetchError: Error {
 }
 
 struct Fetch {
-  static func getRequest<T: Decodable>(_ url: URL) async throws -> Result<T, Error> {
-    let (data, response) = try await URLSession.shared.data(from: url)
-    guard let response = response as? HTTPURLResponse, response.statusCode == 200
-    else {
-        return .failure(FetchError.invalidResponse(response: response))
-    }
-
-    do {
-      let decoder = JSONDecoder()
-      let object = try decoder.decode(T.self, from: data)
-      return .success(object)
-    } catch {
-      return .failure(FetchError.decodingError(error: error))
+    static func getRequest<T: Decodable>(_ url: URL) async throws -> Result<T, Error> {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200
+        else {
+            return .failure(FetchError.invalidResponse(response: response))
+        }
         
+        do {
+            let decoder = JSONDecoder()
+            let object = try decoder.decode(T.self, from: data)
+            return .success(object)
+        } catch {
+            return .failure(FetchError.decodingError(error: error))
+            
+        }
     }
-  }
 }

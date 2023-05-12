@@ -12,7 +12,7 @@ struct TabItemView<TDataSource: DataSource>: View {
     @StateObject var quoteStore:  DataStore<TDataSource>
     
     
-   
+    
     var body: some View {
         ScrollView {
             switch quoteStore.phase {
@@ -28,7 +28,7 @@ struct TabItemView<TDataSource: DataSource>: View {
                     .foregroundColor(.red.opacity(0.8))
                 Text(error)
             default:
-                RandomQuoteView(seriesTitle: quoteStore.series.getFullName(), authorName: quoteStore.author?.name ?? "", authorImageUrl: quoteStore.author?.image, content: quoteStore.quote?.content ?? "")
+                RandomQuoteView(seriesTitle: quoteStore.series.getFullName(), authorName: quoteStore.quote?.author ?? "", authorImageUrl: quoteStore.author?.image, content: quoteStore.quote?.content ?? "")
             }
         }
         .onAppear {
@@ -42,15 +42,15 @@ struct TabItemView<TDataSource: DataSource>: View {
         .refreshable {
             await quoteStore.refresh()
         }
-
-
-
-
+        
+        
+        
+        
         
     }
 }
-    
-    
+
+
 struct GameOfThronesTabView_Previews: PreviewProvider {
     static var previews: some View {
         let quoteStore = DataStore<GameOfThrones>()
