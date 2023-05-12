@@ -24,16 +24,63 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1966B58E-0AC3-4D82-A162-86AB0ADC45C8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "breaking-bad-client/Model/Service/GameOfThrones.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "getCharacter(name:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1966B58E-0AC3-4D82-A162-86AB0ADC45C8 - 8c6c7e71a7a9f742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "breaking_bad_client.GameOfThronesQuote.init(from: Swift.Decoder) throws -&gt; breaking_bad_client.GameOfThronesQuote"
+                  moduleName = "breaking-bad-client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kacperkedzierski/Documents/swift/breaking-bad-client/breaking-bad-client/Model/Service/GameOfThrones.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "1966B58E-0AC3-4D82-A162-86AB0ADC45C8 - 8c6c7e71a7a9f761"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "breaking_bad_client.GameOfThronesQuote.init(from: Swift.Decoder) throws -&gt; breaking_bad_client.GameOfThronesQuote"
+                  moduleName = "breaking-bad-client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kacperkedzierski/Documents/swift/breaking-bad-client/breaking-bad-client/Model/Service/GameOfThrones.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+               <Location
+                  uuid = "1966B58E-0AC3-4D82-A162-86AB0ADC45C8 - 5d6cdfc7c68746b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for static breaking_bad_client.GameOfThrones.getCharacter(name: Swift.String) async throws -&gt; Swift.Optional&lt;breaking_bad_client.Character&lt;breaking_bad_client.GameOfThrones&gt;&gt;"
+                  moduleName = "breaking-bad-client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kacperkedzierski/Documents/swift/breaking-bad-client/breaking-bad-client/Model/Service/GameOfThrones.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "708">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

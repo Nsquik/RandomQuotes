@@ -53,7 +53,7 @@ struct TabItemView<TDataSource: DataSource>: View {
 
 struct GameOfThronesTabView_Previews: PreviewProvider {
     static var previews: some View {
-        let quoteStore = DataStore<GameOfThrones>()
+        let quoteStore = DataStore<GameOfThronesDataSource>(series: .gameOfThrones)
         TabItemView(quoteStore: quoteStore)
             .preferredColorScheme(.dark)
     }

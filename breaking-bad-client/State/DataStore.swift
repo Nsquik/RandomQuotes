@@ -8,9 +8,13 @@
 import Foundation
 
 class DataStore<TDataSource: DataSource>: FetchableObject {
-    @Published var quote: Quote<TDataSource>?
-    @Published var author: Character<TDataSource>?
-    @Published var series = TDataSource.series
+    @Published var quote: Quote?
+    @Published var author: Character?
+    @Published var series: Series
+    
+    init(series: Series) {
+        self.series = series
+    }
     
     
     func clear() {
@@ -22,12 +26,12 @@ class DataStore<TDataSource: DataSource>: FetchableObject {
     @MainActor
     override func fetchData() async {
         do {
-            guard let fetchedQuote = try await Quote<TDataSource>.random else {
+            guard let fetchedQuote = try await TDataSource.getRandomQuote() else {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
             
-            let fetchedCharacter = try await Character<TDataSource>.getCharacter(name: fetchedQuote.author)
+            let fetchedCharacter = try await TDataSource.getCharacter(name: fetchedQuote.author)
             
             quote = fetchedQuote
             author = fetchedCharacter

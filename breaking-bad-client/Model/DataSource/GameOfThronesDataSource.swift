@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct GameOfThrones: Fetchable, DataSource {
-    static let series: Series = .gameOfThrones
-    typealias Content = GameOfThronesContent
+struct GameOfThronesDataSource: Fetchable, DataSource {
+    internal typealias Content = GameOfThronesContent
     static let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
     static let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
-    static var characterList: [GameOfThronesCharacter]? = nil
+    private static var characterList: [GameOfThronesCharacter]? = nil
     
     static func getRequestUrl(on: Content) throws -> URL {
         switch on {
@@ -35,7 +34,7 @@ struct GameOfThrones: Fetchable, DataSource {
         return gotCharacterList
     }
     
-    static func getCharacter(name: String) async throws -> Character<Self>? {
+    static func getCharacter(name: String) async throws -> Character? {
         let gotCharacterList = try await getCharacterList()
         
         guard let gotCharacter = gotCharacterList.first(where: {character in
@@ -49,11 +48,11 @@ struct GameOfThrones: Fetchable, DataSource {
         
     }
     
-    static func getRandomQuote() async throws -> Quote<Self>? {
+    static func getRandomQuote() async throws -> Quote? {
         let url = try getRequestUrl(on: .randomQuote)
         if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote<GameOfThrones>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
+            let quote = Quote(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
             return quote
         }
         return nil
@@ -64,7 +63,7 @@ struct GameOfThrones: Fetchable, DataSource {
 
 
 
-struct GameOfThronesCharacter: Decodable {
+fileprivate struct GameOfThronesCharacter: Decodable {
     let id: String
     let fullName: String
     let firstName: String
@@ -87,7 +86,7 @@ struct GameOfThronesCharacter: Decodable {
 }
 
 
-struct GameOfThronesQuote: Decodable {
+fileprivate struct GameOfThronesQuote: Decodable {
     let id: String
     let sentence: String
     let character: String

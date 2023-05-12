@@ -7,15 +7,10 @@
 
 import Foundation
 
-struct Quote<T: QuoteSource> {
+struct Quote {
     let id: String
     let content: String
     let author: String
     
-    static var random: Quote? {
-        get async throws {
-            try await T.self.getRandomQuote()
-        }
-    }
 }
 
