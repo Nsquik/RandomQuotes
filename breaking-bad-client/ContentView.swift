@@ -15,14 +15,15 @@ struct ContentView: View {
     var body: some View {
         TabView {
             TabItemView(quoteStore: breakingBadStore)
-                .tabItem{Label(breakingBadStore.series.getFullName(), systemImage: "briefcase")}
+                .tabItem{Label(breakingBadStore.series.getFullName(), systemImage: "mouth")}
             TabItemView(quoteStore: betterCallSaulStore)
                 .tabItem{Label(betterCallSaulStore.series.getFullName(), systemImage: "briefcase")}
             TabItemView(quoteStore: gameOfThronesStore)
-                .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "briefcase")}
+                .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "oar.2.crossed")}
         }
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+            UITabBar.appearance().tintColor = .green
         }
     }
 }
