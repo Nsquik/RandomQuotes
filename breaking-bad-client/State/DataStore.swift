@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataStore<TDataSource: DataSource>: FetchableObject {
+class DataStore: FetchableObject {
     @Published var quote: Quote?
     @Published var author: Character?
     @Published var series: Series
@@ -26,12 +26,12 @@ class DataStore<TDataSource: DataSource>: FetchableObject {
     @MainActor
     override func fetchData() async {
         do {
-            guard let fetchedQuote = try await TDataSource.getRandomQuote() else {
+            guard let fetchedQuote = try await Quote.getRandom(series: series) else {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
             
-            let fetchedCharacter = try await TDataSource.getCharacter(name: fetchedQuote.author)
+            let fetchedCharacter = try await Character.getCharacter(series: series, name: fetchedQuote.author)
             
             quote = fetchedQuote
             author = fetchedCharacter

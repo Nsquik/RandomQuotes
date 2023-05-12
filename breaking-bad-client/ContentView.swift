@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    var breakingBadStore = DataStore<BreakingBadDataSource>(series: .breakingBad)
-    var betterCallSaulStore = DataStore<BetterCallSaulDataSource>(series: .betterCallSaul)
-    var gameOfThronesStore = DataStore<GameOfThronesDataSource>(series: .gameOfThrones)
+    var breakingBadStore = DataStore(series: .breakingBad)
+    var betterCallSaulStore = DataStore(series: .betterCallSaul)
+    var gameOfThronesStore = DataStore(series: .gameOfThrones)
     
     var body: some View {
         TabView {

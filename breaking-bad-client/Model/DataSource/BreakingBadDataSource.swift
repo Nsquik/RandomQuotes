@@ -19,7 +19,7 @@ struct BetterCallSaulDataSource: BreakingBadDataSourceProtocol {
 }
 
 
-private protocol BreakingBadDataSourceProtocol: Fetchable, DataSource where Content == BreakingBadContent  {
+protocol BreakingBadDataSourceProtocol: Fetchable, DataSource where Content == BreakingBadContent  {
     static var productionName: String { get }
 }
 
