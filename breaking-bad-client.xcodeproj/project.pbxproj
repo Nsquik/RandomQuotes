@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B04662CF2A0D84AE00624FFC /* GameOfThrones.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */; };
+		B04A8A6A2A0DAE9100F7CC26 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */; };
+		B04A8A6C2A0E328B00F7CC26 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A6B2A0E328B00F7CC26 /* Source.swift */; };
 		B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B672A06F30300931D3E /* FetchableObject.swift */; };
-		B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* QuoteStore.swift */; };
+		B05E0B6A2A06F3C600931D3E /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* DataStore.swift */; };
 		B05E0B702A06FAFE00931D3E /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */; };
 		B05E0B732A0ABBB300931D3E /* BetterCallSaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */; };
 		B05E0B762A0AC2CA00931D3E /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B752A0AC2CA00931D3E /* Series.swift */; };
@@ -45,8 +47,10 @@
 
 /* Begin PBXFileReference section */
 		B04662CE2A0D84AE00624FFC /* GameOfThrones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfThrones.swift; sourceTree = "<group>"; };
+		B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		B04A8A6B2A0E328B00F7CC26 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		B05E0B672A06F30300931D3E /* FetchableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableObject.swift; sourceTree = "<group>"; };
-		B05E0B692A06F3C600931D3E /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
+		B05E0B692A06F3C600931D3E /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
 		B05E0B722A0ABBB300931D3E /* BetterCallSaul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCallSaul.swift; sourceTree = "<group>"; };
 		B05E0B752A0AC2CA00931D3E /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				B0A529492A01BD95005EA3F1 /* Quote.swift */,
 				B0A5294B2A01C525005EA3F1 /* Character.swift */,
 				B05E0B752A0AC2CA00931D3E /* Series.swift */,
+				B04A8A6B2A0E328B00F7CC26 /* Source.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -105,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B05E0B672A06F30300931D3E /* FetchableObject.swift */,
-				B05E0B692A06F3C600931D3E /* QuoteStore.swift */,
+				B05E0B692A06F3C600931D3E /* DataStore.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				B0A5291A2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift */,
 				B0A5291C2A01B5CE005EA3F1 /* ContentView.swift */,
 				B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */,
+				B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */,
 				B0A529442A01B6A3005EA3F1 /* samplecharacter.json */,
 				B0A5291E2A01B5CF005EA3F1 /* Assets.xcassets */,
 				B0A529202A01B5CF005EA3F1 /* Preview Content */,
@@ -322,15 +328,17 @@
 			files = (
 				B0A5294A2A01BD95005EA3F1 /* Quote.swift in Sources */,
 				B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */,
+				B04A8A6A2A0DAE9100F7CC26 /* TabItemView.swift in Sources */,
 				B05E0B702A06FAFE00931D3E /* RandomQuoteView.swift in Sources */,
 				B0A5291D2A01B5CE005EA3F1 /* ContentView.swift in Sources */,
 				B05E0B762A0AC2CA00931D3E /* Series.swift in Sources */,
 				B0A5291B2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift in Sources */,
 				B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */,
-				B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */,
+				B05E0B6A2A06F3C600931D3E /* DataStore.swift in Sources */,
 				B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */,
 				B04662CF2A0D84AE00624FFC /* GameOfThrones.swift in Sources */,
 				B05E0B732A0ABBB300931D3E /* BetterCallSaul.swift in Sources */,
+				B04A8A6C2A0E328B00F7CC26 /* Source.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol CharacterSource {
-    static func getCharacter(name: String) async throws -> Character<Self>?
-}
-
-
-struct Character<T: CharacterSource>: Decodable {
+struct Character<T: CharacterSource> {
     let id: String
     let name: String
     let image: URL

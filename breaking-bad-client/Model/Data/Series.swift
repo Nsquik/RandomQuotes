@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-enum Series: String {
+enum Series {
     case betterCallSaul
     case gameOfThrones
     

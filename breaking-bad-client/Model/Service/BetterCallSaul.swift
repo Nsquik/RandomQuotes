@@ -17,7 +17,8 @@ enum BetterCallSaulError: Error {
     case urlParsingError
 }
 
-struct BetterCallSaul: Fetchable, QuoteSource, CharacterSource {
+struct BetterCallSaul: Fetchable, DataSource {
+    static let series: Series = .betterCallSaul
     typealias Content = BetterCallSaulContent
     static let baseURL = URL(string: "https://bettercallsaul-api.onrender.com/")!
     
@@ -42,19 +43,19 @@ struct BetterCallSaul: Fetchable, QuoteSource, CharacterSource {
   }
     
     static func getRandomQuote() async throws -> Quote<Self>? {
-        let url = try self.getRequestUrl(on: .randomQuote)
-        if let quote: Quote<Self> = try await Fetch.getRequest(url).get()
-        {
-            return quote
-        }
+//        let url = try self.getRequestUrl(on: .randomQuote)
+//        if let quote: Quote<Self> = try await Fetch.getRequest(url).get()
+//        {
+//            return quote
+//        }
         return nil
     }
     
     static func getCharacter(name: String) async throws -> Character<Self>? {
-        let url = try self.getRequestUrl(on: .character(name: name))
-        if let character: Character<Self> = try await Fetch.getRequest(url).get(){
-            return character
-        }
+//        let url = try self.getRequestUrl(on: .character(name: name))
+//        if let character: Character<Self> = try await Fetch.getRequest(url).get(){
+//            return character
+//        }
         return nil
     }
 }

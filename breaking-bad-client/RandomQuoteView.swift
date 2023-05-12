@@ -7,27 +7,22 @@
 
 import SwiftUI
 
-struct RandomQuoteView<T: QuoteSource,D: CharacterSource>: View {
-    @StateObject var quoteStore: QuoteStore<T, D>
-    @State var series: Series
+struct RandomQuoteView: View {
+    var seriesTitle: String
+    var authorName: String
+    var authorImageUrl: URL?
+    var content: String
+    
+    
     
     var body: some View {
-        ScrollView {
-            switch quoteStore.phase {
-            case .loading:
-                ProgressView()
-            case .initial:
-                EmptyView()
-            case .fail(error: let error):
-                Text(error)
-            default:
                 VStack{
-                    Text(series.getFullName())
+                    Text(seriesTitle)
                         .font(.largeTitle)
-                    Text(quoteStore.author?.name ?? "")
+                    Text(authorName)
                         .font(.title2)
                     Spacer(minLength: 60)
-                    AsyncImage(url: quoteStore.author?.image) { phase in
+                    AsyncImage(url: authorImageUrl) { phase in
                         switch phase {
                         case .empty:
                             VStack{}
@@ -46,34 +41,17 @@ struct RandomQuoteView<T: QuoteSource,D: CharacterSource>: View {
                         }
                     }
                     .padding(.bottom, 40)
-                    Text("\(quoteStore.quote?.content ?? "")")
+                    Text(content)
                         .font(.body)
 
                 }
                 .padding(.all, 20)
             }
         }
-        .onAppear {
-            if case .success = quoteStore.phase {}
-            else {
-                    Task{
-                        quoteStore.setup(series: series)
-                        await quoteStore.load()
-                    }
-            }
-        }
-        .refreshable {
-            Task{
-                await quoteStore.refresh()
-            }
-        }
-    }
-}
         
 struct RandomQuoteView_Previews: PreviewProvider {
             static var previews: some View {
-                let quoteStore = QuoteStore<BetterCallSaul, BetterCallSaul>()
-                RandomQuoteView(quoteStore: quoteStore, series: .betterCallSaul)
+                RandomQuoteView(seriesTitle: Series.gameOfThrones.getFullName(), authorName: "Tyrion Lannister", authorImageUrl: URL(string: "https://fwcdn.pl/fph/68/48/476848/882019_1.2.jpg")!, content: "Kill him.")
                     .preferredColorScheme(.dark)
             }
 }

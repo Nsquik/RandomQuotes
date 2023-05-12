@@ -12,7 +12,6 @@ enum FetchableObjectPhase {
     case loading
     case success
     case fail(error: String)
-    case refreshing
 }
 
 class FetchableObject: ObservableObject {
@@ -21,14 +20,16 @@ class FetchableObject: ObservableObject {
     
     @MainActor
     open func fetchData() async {}
+    
     @MainActor
     func load() async {
         phase = .loading
         await fetchData()
     }
+
     @MainActor
     func refresh() async {
-        phase = .refreshing
         await fetchData()
+        self.objectWillChange.send()
     }
 }

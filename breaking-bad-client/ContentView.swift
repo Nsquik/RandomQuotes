@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    let betterCallSaulStore = QuoteStore<BetterCallSaul, BetterCallSaul>()
-    let breakingBadStore = QuoteStore<GameOfThrones, GameOfThrones>()
+    var gameOfThronesStore = DataStore<GameOfThrones>()
+    var otherTVShowStore = DataStore<BetterCallSaul>()
     
     var body: some View {
             TabView {
-                RandomQuoteView(quoteStore: betterCallSaulStore, series: .betterCallSaul)
-                    .tabItem{Label(Series.betterCallSaul.getFullName(), systemImage: "briefcase")}
-                RandomQuoteView(quoteStore: breakingBadStore, series: .gameOfThrones)
-                    .tabItem{Label(Series.gameOfThrones.getFullName(), systemImage: "briefcase")}
+                TabItemView(quoteStore: gameOfThronesStore)
+                    .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "briefcase")}
+                TabItemView(quoteStore: otherTVShowStore)
+                    .tabItem{Label(otherTVShowStore.series.getFullName(), systemImage: "briefcase")}
             }
             .onAppear{
                 UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()

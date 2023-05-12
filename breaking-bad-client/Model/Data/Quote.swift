@@ -7,11 +7,10 @@
 
 import Foundation
 
-protocol QuoteSource {
-    static func getRandomQuote() async throws -> Quote<Self>?
-}
 
-struct Quote<T: QuoteSource>: Decodable {
+
+
+struct Quote<T: QuoteSource> {
     let id: String
     let content: String
     let author: String
