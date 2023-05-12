@@ -7,6 +7,61 @@
 
 import Foundation
 
+struct GameOfThrones: Fetchable, DataSource {
+    static let series: Series = .gameOfThrones
+    typealias Content = GameOfThronesContent
+    static let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
+    static let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
+    static var characterList: [GameOfThronesCharacter]? = nil
+    
+    static func getRequestUrl(on: Content) throws -> URL {
+        switch on {
+        case .randomQuote:
+            return baseURL.appending(path: "random")
+        case .characters:
+            return characterURL.appending(path: "Characters")
+        }
+    }
+    
+    private static func getCharacterList() async throws -> [GameOfThronesCharacter] {
+        if let characterList {
+            return characterList
+        }
+        
+        let url = try getRequestUrl(on: .characters)
+        let gotCharacterList: [GameOfThronesCharacter] = try await Fetch.getRequest(url).get()
+        characterList = gotCharacterList
+        
+        return gotCharacterList
+    }
+    
+    static func getCharacter(name: String) async throws -> Character<Self>? {
+        let gotCharacterList = try await getCharacterList()
+        
+        guard let gotCharacter = gotCharacterList.first(where: {character in
+            return name.contains(character.firstName) && name.contains(character.lastName)
+        })
+        else{
+            return nil
+        }
+        
+        return Character(id: gotCharacter.id, name: gotCharacter.fullName, image: gotCharacter.image)
+        
+    }
+    
+    static func getRandomQuote() async throws -> Quote<Self>? {
+        let url = try getRequestUrl(on: .randomQuote)
+        if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
+        {
+            let quote = Quote<GameOfThrones>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
+            return quote
+        }
+        return nil
+    }
+    
+}
+
+
 
 
 struct GameOfThronesCharacter: Decodable {
@@ -61,56 +116,3 @@ enum GameOfThronesContent {
     case randomQuote
 }
 
-struct GameOfThrones: Fetchable, DataSource {
-    static let series: Series = .gameOfThrones
-    typealias Content = GameOfThronesContent
-    static let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
-    static let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
-    static var characterList: [GameOfThronesCharacter]? = nil
-    
-    static func getRequestUrl(on: Content) throws -> URL {
-        switch on {
-        case .randomQuote:
-            return baseURL.appending(path: "random")
-        case .characters:
-            return characterURL.appending(path: "Characters")
-        }
-    }
-    
-    private static func getCharacterList() async throws -> [GameOfThronesCharacter] {
-        if let characterList {
-            return characterList
-        }
-        
-        let url = try getRequestUrl(on: .characters)
-        let gotCharacterList: [GameOfThronesCharacter] = try await Fetch.getRequest(url).get()
-        characterList = gotCharacterList
-        
-        return gotCharacterList
-    }
-    
-    static func getCharacter(name: String) async throws -> Character<Self>? {
-        let gotCharacterList = try await getCharacterList()
-        
-        guard let gotCharacter = gotCharacterList.first(where: {character in
-            return name.contains(character.firstName) && name.contains(character.lastName)
-        })
-        else{
-            return nil
-        }
-        
-        return Character(id: gotCharacter.id, name: gotCharacter.fullName, image: gotCharacter.image)
-        
-    }
-    
-    static func getRandomQuote() async throws -> Quote<Self>? {
-        let url = try getRequestUrl(on: .randomQuote)
-        if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
-        {
-            let quote = Quote<GameOfThrones>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
-            return quote
-        }
-        return nil
-    }
-    
-}
