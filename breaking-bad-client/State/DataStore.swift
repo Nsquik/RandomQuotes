@@ -7,9 +7,9 @@
 
 import Foundation
 
-class DataStore: FetchableObject {
-    @Published var quote: Quote?
-    @Published var author: Character?
+class DataStore<Source: DataSource>: FetchableObject {
+    @Published var quote: Quote<Source>?
+    @Published var author: Character<Source>?
     @Published var series: Series
     
     init(series: Series) {
@@ -26,12 +26,12 @@ class DataStore: FetchableObject {
     @MainActor
     override func fetchData() async {
         do {
-            guard let fetchedQuote = try await Quote.getRandom(series: series) else {
+            guard let fetchedQuote = try await Quote<Source>.random else {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
             
-            let fetchedCharacter = try await Character.getCharacter(series: series, name: fetchedQuote.author)
+            let fetchedCharacter = try await Character<Source>.getCharacter(name: fetchedQuote.author)
             
             quote = fetchedQuote
             author = fetchedCharacter
@@ -41,5 +41,4 @@ class DataStore: FetchableObject {
             phase = .fail(error: error.localizedDescription)
         }
     }
-    
 }

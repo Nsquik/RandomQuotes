@@ -8,23 +8,21 @@
 import Foundation
 
 struct BreakingBadDataSource: BreakingBadDataSourceProtocol {
-    static var productionName = "Breaking Bad"
-    static var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
+    var productionName = "Breaking Bad"
+    var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
+    
+    public static let shared = BreakingBadDataSource()
 }
 
 
-struct BetterCallSaulDataSource: BreakingBadDataSourceProtocol {
-    static var productionName = "Better Call Saul"
-    static var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
-}
 
 
 protocol BreakingBadDataSourceProtocol: Fetchable, DataSource where Content == BreakingBadContent  {
-    static var productionName: String { get }
+    var productionName: String { get }
 }
 
 extension BreakingBadDataSourceProtocol {
-    static func getRequestUrl(on: Content) throws -> URL {
+    func getRequestUrl(on: Content) throws -> URL {
         switch on {
         case .randomQuote:
             return baseURL.appending(path: "quotes/random")
@@ -36,21 +34,21 @@ extension BreakingBadDataSourceProtocol {
         }
     }
     
-    static func getRandomQuote() async throws -> Quote? {
+    func getRandomQuote() async throws -> Quote<Self>? {
         let url = try self.getRequestUrl(on: .randomQuote)
         if let bbQuote: BreakingBadQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character)
+            let quote = Quote<Self>(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character)
             return quote
         }
         return nil
     }
     
-    static func getCharacter(name: String) async throws -> Character? {
+    func getCharacter(name: String) async throws -> Character<Self>? {
         let url = try self.getRequestUrl(on: .character(name: name))
         if let bbCharacter: BreakingBadCharacter = try await Fetch.getRequest(url).get(){
             
-            let character = Character(id: bbCharacter.id, name: bbCharacter.name, image: bbCharacter.image)
+            let character = Character<Self>(id: bbCharacter.id, name: bbCharacter.name, image: bbCharacter.image)
             return character
         }
         return nil

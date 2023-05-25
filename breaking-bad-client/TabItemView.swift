@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct TabItemView: View {
-    @StateObject var quoteStore: DataStore
+struct TabItemView<Source: DataSource>: View {
+    @StateObject var quoteStore: DataStore<Source>
     
     var body: some View {
         ScrollView {
@@ -46,7 +46,7 @@ struct TabItemView: View {
 
 struct GameOfThronesTabView_Previews: PreviewProvider {
     static var previews: some View {
-        let quoteStore = DataStore(series: .gameOfThrones)
+        let quoteStore = DataStore<GameOfThronesDataSource>(series: .gameOfThrones)
         TabItemView(quoteStore: quoteStore)
             .preferredColorScheme(.dark)
     }

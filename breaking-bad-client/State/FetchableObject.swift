@@ -30,6 +30,5 @@ class FetchableObject: ObservableObject {
     @MainActor
     func refresh() async {
         await fetchData()
-        self.objectWillChange.send()
     }
 }

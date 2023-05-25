@@ -7,19 +7,15 @@
 
 import Foundation
 
-struct Quote {
+struct Quote<Source: QuoteSource> {
     let id: String
     let content: String
     let author: String
+    var isFavourite: Bool? = false
     
-    static func getRandom(series: Series) async throws -> Quote? {
-        switch series {
-        case .gameOfThrones:
-            return try await GameOfThronesDataSource.getRandomQuote()
-        case .breakingBad:
-            return try await BreakingBadDataSource.getRandomQuote()
-        case .betterCallSaul:
-            return try await BetterCallSaulDataSource.getRandomQuote()
+    static var random:  Quote? {
+        get async throws {
+            return try await Source.shared.getRandomQuote()
         }
     }
 }

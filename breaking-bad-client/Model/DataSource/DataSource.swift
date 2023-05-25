@@ -9,11 +9,13 @@ import Foundation
 
 
 internal protocol QuoteSource {
-    static func getRandomQuote() async throws -> Quote?
+    static var shared: Self {get}
+    func getRandomQuote() async throws -> Quote<Self>?
 }
 
 internal protocol CharacterSource {
-    static func getCharacter(name: String) async throws -> Character?
+    static var shared: Self {get}
+    func getCharacter(name: String) async throws -> Character<Self>?
 }
 
 protocol DataSource: QuoteSource, CharacterSource {}

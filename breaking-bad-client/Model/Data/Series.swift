@@ -14,9 +14,9 @@ enum Series {
     
     func getFullName() -> String {
         switch self {
-        case .breakingBad: return "Breaking Bad"
-        case .gameOfThrones: return "Game of Thrones"
-        case .betterCallSaul: return "Better Call Saul"
+            case .breakingBad: return "Breaking Bad"
+            case .gameOfThrones: return "Game of Thrones"
+            case .betterCallSaul: return "Better Call Saul"
         }
     }
 }

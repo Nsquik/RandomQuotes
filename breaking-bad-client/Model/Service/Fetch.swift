@@ -11,8 +11,8 @@ import SwiftUI
 protocol Fetchable {
     associatedtype Content
     
-    static var baseURL: URL { get }
-    static func getRequestUrl(on: Content) throws -> URL
+    var baseURL: URL { get }
+    func getRequestUrl(on: Content) throws -> URL
 }
 
 

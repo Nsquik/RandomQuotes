@@ -9,11 +9,15 @@ import Foundation
 
 struct GameOfThronesDataSource: Fetchable, DataSource {
     internal typealias Content = GameOfThronesContent
-    static let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
-    static let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
-    private static var characterList: [GameOfThronesCharacter]? = nil
+    let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
+    let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
+    static private var characterList: [GameOfThronesCharacter]? = nil
     
-    static func getRequestUrl(on: Content) throws -> URL {
+    public static let shared = GameOfThronesDataSource()
+    
+    
+    
+    func getRequestUrl(on: Content) throws -> URL {
         switch on {
         case .randomQuote:
             return baseURL.appending(path: "random")
@@ -22,19 +26,19 @@ struct GameOfThronesDataSource: Fetchable, DataSource {
         }
     }
     
-    private static func getCharacterList() async throws -> [GameOfThronesCharacter] {
-        if let characterList {
-            return characterList
+    private func getCharacterList() async throws -> [GameOfThronesCharacter] {
+        if GameOfThronesDataSource.characterList != nil {
+            return GameOfThronesDataSource.characterList ?? []
         }
         
         let url = try getRequestUrl(on: .characters)
         let gotCharacterList: [GameOfThronesCharacter] = try await Fetch.getRequest(url).get()
-        characterList = gotCharacterList
+        GameOfThronesDataSource.characterList = gotCharacterList
         
         return gotCharacterList
     }
     
-    static func getCharacter(name: String) async throws -> Character? {
+    func getCharacter(name: String) async throws -> Character<Self>? {
         let gotCharacterList = try await getCharacterList()
         
         guard let gotCharacter = gotCharacterList.first(where: {character in
@@ -48,11 +52,11 @@ struct GameOfThronesDataSource: Fetchable, DataSource {
         
     }
     
-    static func getRandomQuote() async throws -> Quote? {
+    func getRandomQuote() async throws -> Quote<Self>? {
         let url = try getRequestUrl(on: .randomQuote)
         if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
+            let quote = Quote<Self>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
             return quote
         }
         return nil
@@ -77,10 +81,11 @@ fileprivate struct GameOfThronesCharacter: Decodable {
     init(from decoder: Decoder) throws {
         let characterContainer = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = UUID().uuidString
+        
         firstName = try characterContainer.decodeIfPresent(String.self, forKey: .firstName) ?? ""
         lastName = try characterContainer.decodeIfPresent(String.self, forKey: .lastName) ?? ""
         fullName = try characterContainer.decodeIfPresent(String.self, forKey: .fullName) ?? ""
+        id = fullName
         image = URL(string: try characterContainer.decodeIfPresent(String.self, forKey: .imageUrl) ?? "")!
     }
 }
