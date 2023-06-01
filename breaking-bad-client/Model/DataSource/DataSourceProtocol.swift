@@ -8,14 +8,17 @@
 import Foundation
 
 
-internal protocol QuoteSource {
+internal protocol CommonSource {
     static var shared: Self {get}
+}
+
+internal protocol QuoteSource: CommonSource {
     func getRandomQuote() async throws -> Quote<Self>?
 }
 
-internal protocol CharacterSource {
-    static var shared: Self {get}
+internal protocol CharacterSource: CommonSource {
     func getCharacter(name: String) async throws -> Character<Self>?
 }
 
 protocol DataSource: QuoteSource, CharacterSource {}
+
