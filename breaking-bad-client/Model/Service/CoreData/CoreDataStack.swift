@@ -8,8 +8,9 @@
 import Foundation
 import CoreData
 
-final class CoreDataStack<Entity: NSManagedObject> {
+final class CoreDataStack {
     private let persistentContainer: NSPersistentContainer
+    private let context: NSManagedObjectContext
 
     init(modelName: String) {
         persistentContainer = NSPersistentContainer(name: modelName)
@@ -18,11 +19,11 @@ final class CoreDataStack<Entity: NSManagedObject> {
                 fatalError("Failed to load persistent stores: \(error)")
             }
         }
+        
+        context = persistentContainer.viewContext
     }
 
     func saveContext() {
-        let context = persistentContainer.viewContext
-
         if context.hasChanges {
             do {
                 try context.save()
@@ -33,16 +34,17 @@ final class CoreDataStack<Entity: NSManagedObject> {
         }
     }
     
-    func addObject(_ entity: Entity) {
-        let context = persistentContainer.viewContext
+    func addObject<Entity: NSManagedObject>(_ entity: Entity) {
         context.insert(entity)
         saveContext()
     }
-
     
-    func fetchObjects(_ modifyFetchRequest: ((NSFetchRequest<Entity>) -> Void)? = nil) throws -> [Entity] {
-            let context = persistentContainer.viewContext
-            
+    func removeObject<Entity: NSManagedObject>(_ entity: Entity) {
+        context.delete(entity)
+        saveContext()
+    }
+    
+    func fetchObjects<Entity: NSManagedObject>(_ modifyFetchRequest: ((NSFetchRequest<Entity>) -> Void)? = nil) throws -> [Entity] {
             guard let entityName = Entity.entity().name else {
                 throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to retrieve entity name."])
             }
@@ -63,7 +65,7 @@ final class CoreDataStack<Entity: NSManagedObject> {
     
     
     func getContext() -> NSManagedObjectContext {
-        return persistentContainer.viewContext
+        return context
     }
 
 }

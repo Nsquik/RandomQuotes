@@ -7,10 +7,11 @@
 
 import Foundation
 
-class DataStore<Source: DataSource>: FetchableObject {
+class QuoteStore<Source: QuoteDataSource>: FetchableObject {
     @Published var quote: Quote<Source>?
     @Published var author: Character<Source>?
     @Published var series: Series
+    @Published var isFavourite: Bool = false
     
     init(series: Series) {
         self.series = series
@@ -31,14 +32,33 @@ class DataStore<Source: DataSource>: FetchableObject {
                 return
             }
             
+            let isQuoteFavourite = try Favourites.checkIsFavourite(favourable: fetchedQuote)
             let fetchedCharacter = try await Character<Source>.getCharacter(name: fetchedQuote.author)
             
             quote = fetchedQuote
             author = fetchedCharacter
             phase = .success
+            isFavourite = isQuoteFavourite
         } catch {
             print(error)
             phase = .fail(error: error.localizedDescription)
+        }
+    }
+    
+    
+    func saveAsFavourite() {
+        do{
+            if let author, let quote {
+                let favCharacter = try Favourites.add(favourable: author)
+                _ = try Favourites.add(favourable: quote, addRelations: {
+                    favQuote in
+                    favQuote.character = favCharacter
+                    return favQuote
+                })
+
+            }
+        }catch{
+            print(error)
         }
     }
 }

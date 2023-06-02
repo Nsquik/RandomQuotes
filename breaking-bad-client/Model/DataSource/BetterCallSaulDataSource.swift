@@ -9,7 +9,7 @@ import Foundation
 
 
 struct BetterCallSaulDataSource: BreakingBadDataSourceProtocol {
-    var productionName = "Better Call Saul"
+    var series: Series = Series.betterCallSaul
     var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
     
     public static let shared = BetterCallSaulDataSource()

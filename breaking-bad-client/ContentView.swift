@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var breakingBadStore = DataStore<BreakingBadDataSource>(series: .breakingBad)
-    var betterCallSaulStore = DataStore<BetterCallSaulDataSource>(series: .betterCallSaul)
-    var gameOfThronesStore = DataStore<GameOfThronesDataSource>(series: .gameOfThrones)
+    var breakingBadStore = QuoteStore<BreakingBadDataSource>(series: .breakingBad)
+    var betterCallSaulStore = QuoteStore<BetterCallSaulDataSource>(series: .betterCallSaul)
+    var gameOfThronesStore = QuoteStore<GameOfThronesDataSource>(series: .gameOfThrones)
     
     var body: some View {
         TabView {
-            TabItemView(quoteStore: breakingBadStore)
+            QuoteTabItemView(quoteStore: breakingBadStore)
                 .tabItem{Label(breakingBadStore.series.getFullName(), systemImage: "mouth")}
-            TabItemView(quoteStore: betterCallSaulStore)
+            QuoteTabItemView(quoteStore: betterCallSaulStore)
                 .tabItem{Label(betterCallSaulStore.series.getFullName(), systemImage: "briefcase")}
-            TabItemView(quoteStore: gameOfThronesStore)
+            QuoteTabItemView(quoteStore: gameOfThronesStore)
                 .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "oar.2.crossed")}
         }
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
-            UITabBar.appearance().tintColor = .green
         }
     }
 }

@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B04662CF2A0D84AE00624FFC /* GameOfThronesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04662CE2A0D84AE00624FFC /* GameOfThronesDataSource.swift */; };
-		B04A8A6A2A0DAE9100F7CC26 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */; };
+		B04A8A6A2A0DAE9100F7CC26 /* QuoteTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A692A0DAE9000F7CC26 /* QuoteTabItemView.swift */; };
 		B04A8A6C2A0E328B00F7CC26 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A6B2A0E328B00F7CC26 /* DataSourceProtocol.swift */; };
 		B04A8A712A0EAA6900F7CC26 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A702A0EAA6900F7CC26 /* Favourites.swift */; };
 		B04A8A742A0EAD4900F7CC26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04A8A732A0EAD4900F7CC26 /* CoreData.framework */; };
 		B04A8A7B2A0EDC1E00F7CC26 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */; };
 		B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B672A06F30300931D3E /* FetchableObject.swift */; };
-		B05E0B6A2A06F3C600931D3E /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* DataStore.swift */; };
-		B05E0B702A06FAFE00931D3E /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */; };
+		B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* QuoteStore.swift */; };
+		B05E0B702A06FAFE00931D3E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B6F2A06FAFE00931D3E /* QuoteView.swift */; };
 		B05E0B732A0ABBB300931D3E /* BreakingBadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B722A0ABBB300931D3E /* BreakingBadDataSource.swift */; };
 		B05E0B762A0AC2CA00931D3E /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B752A0AC2CA00931D3E /* Series.swift */; };
 		B06104732A1FF09600F47AA4 /* BetterCallSaulDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06104722A1FF09600F47AA4 /* BetterCallSaulDataSource.swift */; };
@@ -51,14 +51,14 @@
 
 /* Begin PBXFileReference section */
 		B04662CE2A0D84AE00624FFC /* GameOfThronesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfThronesDataSource.swift; sourceTree = "<group>"; };
-		B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		B04A8A692A0DAE9000F7CC26 /* QuoteTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTabItemView.swift; sourceTree = "<group>"; };
 		B04A8A6B2A0E328B00F7CC26 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
 		B04A8A702A0EAA6900F7CC26 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		B04A8A732A0EAD4900F7CC26 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B05E0B672A06F30300931D3E /* FetchableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableObject.swift; sourceTree = "<group>"; };
-		B05E0B692A06F3C600931D3E /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
+		B05E0B692A06F3C600931D3E /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
+		B05E0B6F2A06FAFE00931D3E /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		B05E0B722A0ABBB300931D3E /* BreakingBadDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBadDataSource.swift; sourceTree = "<group>"; };
 		B05E0B752A0AC2CA00931D3E /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		B06104722A1FF09600F47AA4 /* BetterCallSaulDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCallSaulDataSource.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B05E0B672A06F30300931D3E /* FetchableObject.swift */,
-				B05E0B692A06F3C600931D3E /* DataStore.swift */,
+				B05E0B692A06F3C600931D3E /* QuoteStore.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -155,8 +155,8 @@
 		B06104742A1FF64600F47AA4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B0FB9FAA2A29255700AFB806 /* Models */,
 				B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */,
-				B061047A2A1FFA3200F47AA4 /* FavouritesModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -189,8 +189,8 @@
 				B05E0B662A06F1BB00931D3E /* State */,
 				B0A5291A2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift */,
 				B0A5291C2A01B5CE005EA3F1 /* ContentView.swift */,
-				B05E0B6F2A06FAFE00931D3E /* RandomQuoteView.swift */,
-				B04A8A692A0DAE9000F7CC26 /* TabItemView.swift */,
+				B05E0B6F2A06FAFE00931D3E /* QuoteView.swift */,
+				B04A8A692A0DAE9000F7CC26 /* QuoteTabItemView.swift */,
 				B0A5291E2A01B5CF005EA3F1 /* Assets.xcassets */,
 				B0A529202A01B5CF005EA3F1 /* Preview Content */,
 			);
@@ -230,6 +230,14 @@
 				B05E0B652A06F19F00931D3E /* Data */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B0FB9FAA2A29255700AFB806 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B061047A2A1FFA3200F47AA4 /* FavouritesModel.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,15 +373,15 @@
 				B0A5294A2A01BD95005EA3F1 /* Quote.swift in Sources */,
 				B04A8A712A0EAA6900F7CC26 /* Favourites.swift in Sources */,
 				B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */,
-				B04A8A6A2A0DAE9100F7CC26 /* TabItemView.swift in Sources */,
-				B05E0B702A06FAFE00931D3E /* RandomQuoteView.swift in Sources */,
+				B04A8A6A2A0DAE9100F7CC26 /* QuoteTabItemView.swift in Sources */,
+				B05E0B702A06FAFE00931D3E /* QuoteView.swift in Sources */,
 				B0A5291D2A01B5CE005EA3F1 /* ContentView.swift in Sources */,
 				B05E0B762A0AC2CA00931D3E /* Series.swift in Sources */,
 				B0A5291B2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift in Sources */,
 				B061047C2A1FFA3200F47AA4 /* FavouritesModel.xcdatamodeld in Sources */,
 				B04A8A7B2A0EDC1E00F7CC26 /* CoreDataStack.swift in Sources */,
 				B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */,
-				B05E0B6A2A06F3C600931D3E /* DataStore.swift in Sources */,
+				B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */,
 				B06104732A1FF09600F47AA4 /* BetterCallSaulDataSource.swift in Sources */,
 				B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */,
 				B04662CF2A0D84AE00624FFC /* GameOfThronesDataSource.swift in Sources */,

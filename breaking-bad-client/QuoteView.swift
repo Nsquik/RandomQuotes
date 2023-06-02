@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct RandomQuoteView: View {
+struct QuoteView: View {
     var seriesTitle: String
     var authorName: String
     var authorImageUrl: URL?
     var content: String
+    var isFavourite: Bool
+    var onSaveAsFavouritePress: () -> Void
     
     
     
@@ -49,6 +51,18 @@ struct RandomQuoteView: View {
                     .italic()
                     .font(.headline)
                     .fontWeight(.medium)
+                HStack{
+                    Image(systemName: isFavourite ? "star.fill" : "star")
+                        .foregroundColor(.yellow)
+
+                        
+                    Button(!isFavourite ? "Mark as favourite" : "Your favourite!") {
+                        !isFavourite ? onSaveAsFavouritePress() : nil
+                    }
+                }
+                .padding(.top, 10)
+                .frame(maxWidth: .infinity, alignment: .center)
+
                 Spacer()
                 
             }
@@ -60,9 +74,11 @@ struct RandomQuoteView: View {
     }
 }
 
-struct RandomQuoteView_Previews: PreviewProvider {
+struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        RandomQuoteView(seriesTitle: Series.gameOfThrones.getFullName(), authorName: "Tyrion Lannister", authorImageUrl: URL(string: "https://fwcdn.pl/fph/68/48/476848/882019_1.2.jpg")!, content: "Kill him.")
+        QuoteView(seriesTitle: Series.gameOfThrones.getFullName(), authorName: "Tyrion Lannister", authorImageUrl: URL(string: "https://fwcdn.pl/fph/68/48/476848/882019_1.2.jpg")!, content: "Kill him.", isFavourite: true, onSaveAsFavouritePress: {
+            print("save")
+        })
             .preferredColorScheme(.dark)
     }
 }

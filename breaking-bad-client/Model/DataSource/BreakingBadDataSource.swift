@@ -8,7 +8,7 @@
 import Foundation
 
 struct BreakingBadDataSource: BreakingBadDataSourceProtocol {
-    var productionName = "Breaking Bad"
+    var series: Series = Series.breakingBad
     var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
     
     public static let shared = BreakingBadDataSource()
@@ -17,18 +17,19 @@ struct BreakingBadDataSource: BreakingBadDataSourceProtocol {
 
 
 
-protocol BreakingBadDataSourceProtocol: Fetchable, DataSource where Content == BreakingBadContent  {
-    var productionName: String { get }
+protocol BreakingBadDataSourceProtocol: Fetchable, QuoteDataSource where Content == BreakingBadContent  {
+    var series: Series { get }
 }
 
 extension BreakingBadDataSourceProtocol {
     func getRequestUrl(on: Content) throws -> URL {
         switch on {
         case .randomQuote:
-            return baseURL.appending(path: "quotes/random")
+            let productionNameQueryItem = URLQueryItem(name: "production", value: series.getFullName())
+            return baseURL.appending(path: "quotes/random").appending(queryItems: [productionNameQueryItem])
         case .character(name: let name):
             let characterNameQueryItem = URLQueryItem(name: "name", value: name)
-            let productionNameQueryItem = URLQueryItem(name: "production", value: productionName)
+            let productionNameQueryItem = URLQueryItem(name: "production", value: series.getFullName())
             let characterUrl = baseURL.appending(path: "characters").appending(queryItems: [characterNameQueryItem, productionNameQueryItem])
             return characterUrl
         }
@@ -38,7 +39,7 @@ extension BreakingBadDataSourceProtocol {
         let url = try self.getRequestUrl(on: .randomQuote)
         if let bbQuote: BreakingBadQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote<Self>(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character)
+            let quote = Quote<Self>(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character, series: series)
             return quote
         }
         return nil

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameOfThronesDataSource: Fetchable, DataSource {
+struct GameOfThronesDataSource: Fetchable, QuoteDataSource {
     internal typealias Content = GameOfThronesContent
     let baseURL = URL(string: "https://api.gameofthronesquotes.xyz/v1/")!
     let characterURL = URL(string: "https://thronesapi.com/api/v2/")!
@@ -56,7 +56,7 @@ struct GameOfThronesDataSource: Fetchable, DataSource {
         let url = try getRequestUrl(on: .randomQuote)
         if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote<Self>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character)
+            let quote = Quote<Self>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character, series: Series.gameOfThrones)
             return quote
         }
         return nil
@@ -106,7 +106,7 @@ fileprivate struct GameOfThronesQuote: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = UUID().uuidString
+        id = try container.decode(String.self, forKey: .sentence)
         sentence = try container.decode(String.self, forKey: .sentence)
         
         let characterContainer = try container.nestedContainer(keyedBy: CharacterKeys.self, forKey: .character)

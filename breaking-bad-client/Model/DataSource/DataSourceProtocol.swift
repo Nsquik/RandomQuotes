@@ -20,5 +20,5 @@ internal protocol CharacterSource: CommonSource {
     func getCharacter(name: String) async throws -> Character<Self>?
 }
 
-protocol DataSource: QuoteSource, CharacterSource {}
+protocol QuoteDataSource: QuoteSource, CharacterSource {}
 

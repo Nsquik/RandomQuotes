@@ -13,6 +13,8 @@ struct Quote<Source: QuoteSource>: Favourable {
     let id: String
     let content: String
     let author: String
+    let series: Series
+    
     
     static var random:  Quote? {
         get async throws {
@@ -21,12 +23,19 @@ struct Quote<Source: QuoteSource>: Favourable {
     }
     
     
-    typealias FavourableModel = FavouriteQuote
-    func mapToFavourable(context: NSManagedObjectContext) -> FavouriteQuote? {
+    typealias FavouriteModel = FavouriteQuote
+    func mapToFavourite(context: NSManagedObjectContext) -> FavouriteQuote {
             let favouriteQuote = FavouriteQuote(context: context)
-            favouriteQuote.id = UUID(uuidString: self.id)
+            favouriteQuote.id = self.id
             favouriteQuote.content = self.content
+            favouriteQuote.series = series.getFullName()
             return favouriteQuote
         }
+    
+    func isFavouritePredicate() -> NSPredicate {
+        let seriesPredicate = NSPredicate(format: "series == %@", series.getFullName())
+        let contentPredicate = NSPredicate(format: "content == %@", self.content)
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [seriesPredicate, contentPredicate])
+    }
 }
 

@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct TabItemView<Source: DataSource>: View {
-    @StateObject var quoteStore: DataStore<Source>
+struct QuoteTabItemView<Source: QuoteDataSource>: View {
+    @StateObject var quoteStore: QuoteStore<Source>
     
     var body: some View {
         ScrollView {
@@ -26,7 +26,11 @@ struct TabItemView<Source: DataSource>: View {
                     .foregroundColor(.red.opacity(0.8))
                 Text(error)
             default:
-                RandomQuoteView(seriesTitle: quoteStore.series.getFullName(), authorName: quoteStore.quote?.author ?? "", authorImageUrl: quoteStore.author?.image, content: quoteStore.quote?.content ?? "")
+                QuoteView(seriesTitle: quoteStore.series.getFullName(), authorName: quoteStore.quote?.author ?? "", authorImageUrl: quoteStore.author?.image, content: quoteStore.quote?.content ?? "", isFavourite: quoteStore.isFavourite,
+                          onSaveAsFavouritePress: {
+                    quoteStore.saveAsFavourite()
+                    quoteStore.isFavourite = true
+                })
             }
         }
         .onAppear {
@@ -44,10 +48,10 @@ struct TabItemView<Source: DataSource>: View {
 }
 
 
-struct GameOfThronesTabView_Previews: PreviewProvider {
+struct QuoteTabItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let quoteStore = DataStore<GameOfThronesDataSource>(series: .gameOfThrones)
-        TabItemView(quoteStore: quoteStore)
+        let quoteStore = QuoteStore<GameOfThronesDataSource>(series: .gameOfThrones)
+        QuoteTabItemView(quoteStore: quoteStore)
             .preferredColorScheme(.dark)
     }
 }
