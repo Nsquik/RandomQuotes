@@ -35,21 +35,21 @@ extension BreakingBadDataSourceProtocol {
         }
     }
     
-    func getRandomQuote() async throws -> Quote<Self>? {
+    func getRandomQuote() async throws -> Quote? {
         let url = try self.getRequestUrl(on: .randomQuote)
         if let bbQuote: BreakingBadQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote<Self>(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character, series: series)
+            let quote = Quote(id: bbQuote.id, content: bbQuote.quote, author: bbQuote.character, series: series)
             return quote
         }
         return nil
     }
     
-    func getCharacter(name: String) async throws -> Character<Self>? {
+    func getCharacter(name: String) async throws -> Character? {
         let url = try self.getRequestUrl(on: .character(name: name))
         if let bbCharacter: BreakingBadCharacter = try await Fetch.getRequest(url).get(){
             
-            let character = Character<Self>(id: bbCharacter.id, name: bbCharacter.name, image: bbCharacter.image)
+            let character = Character(id: bbCharacter.id, name: bbCharacter.name, image: bbCharacter.image)
             return character
         }
         return nil

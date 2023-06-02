@@ -8,8 +8,8 @@
 import Foundation
 
 class QuoteStore<Source: QuoteDataSource>: FetchableObject {
-    @Published var quote: Quote<Source>?
-    @Published var author: Character<Source>?
+    @Published var quote: Quote?
+    @Published var author: Character?
     @Published var series: Series
     @Published var isFavourite: Bool = false
     
@@ -27,13 +27,13 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
     @MainActor
     override func fetchData() async {
         do {
-            guard let fetchedQuote = try await Quote<Source>.random else {
+            guard let fetchedQuote = try await Quote.random(source: Source.shared) else {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
             
             let isQuoteFavourite = try Favourites.checkIsFavourite(favourable: fetchedQuote)
-            let fetchedCharacter = try await Character<Source>.getCharacter(name: fetchedQuote.author)
+            let fetchedCharacter = try await Character.getCharacter(name: fetchedQuote.author, source: Source.shared)
             
             quote = fetchedQuote
             author = fetchedCharacter
@@ -45,7 +45,7 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
         }
     }
     
-    
+    @MainActor
     func saveAsFavourite() {
         do{
             if let author, let quote {

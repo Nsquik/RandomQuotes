@@ -38,7 +38,7 @@ struct GameOfThronesDataSource: Fetchable, QuoteDataSource {
         return gotCharacterList
     }
     
-    func getCharacter(name: String) async throws -> Character<Self>? {
+    func getCharacter(name: String) async throws -> Character? {
         let gotCharacterList = try await getCharacterList()
         
         guard let gotCharacter = gotCharacterList.first(where: {character in
@@ -52,11 +52,11 @@ struct GameOfThronesDataSource: Fetchable, QuoteDataSource {
         
     }
     
-    func getRandomQuote() async throws -> Quote<Self>? {
+    func getRandomQuote() async throws -> Quote? {
         let url = try getRequestUrl(on: .randomQuote)
         if let gotQuote: GameOfThronesQuote = try await Fetch.getRequest(url).get()
         {
-            let quote = Quote<Self>(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character, series: Series.gameOfThrones)
+            let quote = Quote(id: gotQuote.id, content: gotQuote.sentence, author: gotQuote.character, series: Series.gameOfThrones)
             return quote
         }
         return nil

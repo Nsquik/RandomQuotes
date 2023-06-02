@@ -11,7 +11,7 @@ import SwiftUI
 struct breaking_bad_clientApp: App {    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

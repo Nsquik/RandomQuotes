@@ -13,11 +13,11 @@ internal protocol CommonSource {
 }
 
 internal protocol QuoteSource: CommonSource {
-    func getRandomQuote() async throws -> Quote<Self>?
+    func getRandomQuote() async throws -> Quote?
 }
 
 internal protocol CharacterSource: CommonSource {
-    func getCharacter(name: String) async throws -> Character<Self>?
+    func getCharacter(name: String) async throws -> Character?
 }
 
 protocol QuoteDataSource: QuoteSource, CharacterSource {}

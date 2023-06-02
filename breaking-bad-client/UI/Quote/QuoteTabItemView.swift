@@ -13,19 +13,7 @@ struct QuoteTabItemView<Source: QuoteDataSource>: View {
     
     var body: some View {
         ScrollView {
-            switch quoteStore.phase {
-            case .loading:
-                ProgressView()
-            case .initial:
-                EmptyView()
-            case .fail(error: let error):
-                Image(systemName: "flag.filled.and.flag.crossed")
-                    .resizable()
-                    .frame(width: 120, height: 80)
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.red.opacity(0.8))
-                Text(error)
-            default:
+            PhaseView(phase: quoteStore.phase){
                 QuoteView(seriesTitle: quoteStore.series.getFullName(), authorName: quoteStore.quote?.author ?? "", authorImageUrl: quoteStore.author?.image, content: quoteStore.quote?.content ?? "", isFavourite: quoteStore.isFavourite,
                           onSaveAsFavouritePress: {
                     quoteStore.saveAsFavourite()

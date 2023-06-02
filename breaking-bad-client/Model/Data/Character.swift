@@ -8,13 +8,13 @@
 import Foundation
 import CoreData
 
-struct Character<Source: CharacterSource>: Favourable {
+struct Character: Favourable {
     let id: String
     let name: String
     let image: URL
     
-    static func getCharacter(name: String) async throws -> Character? {
-        return try await Source.shared.getCharacter(name: name)
+    static func getCharacter(name: String, source: any CharacterSource) async throws -> Character? {
+        return try await source.getCharacter(name: name)
     }
     
     typealias FavouriteModel = FavouriteCharacter

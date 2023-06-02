@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var breakingBadStore = QuoteStore<BreakingBadDataSource>(series: .breakingBad)
     var betterCallSaulStore = QuoteStore<BetterCallSaulDataSource>(series: .betterCallSaul)
     var gameOfThronesStore = QuoteStore<GameOfThronesDataSource>(series: .gameOfThrones)
+    
+    var favouritesStore = FavouritesStore()
     
     var body: some View {
         TabView {
@@ -20,6 +22,8 @@ struct ContentView: View {
                 .tabItem{Label(betterCallSaulStore.series.getFullName(), systemImage: "briefcase")}
             QuoteTabItemView(quoteStore: gameOfThronesStore)
                 .tabItem{Label(gameOfThronesStore.series.getFullName(), systemImage: "oar.2.crossed")}
+            FavouritesTabItemView(favouritesStore: favouritesStore)
+                .tabItem{Label("Favourites", systemImage: "star.fill")}
         }
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
@@ -27,9 +31,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
             .preferredColorScheme(.dark)
     }
 }

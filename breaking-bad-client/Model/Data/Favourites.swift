@@ -25,7 +25,7 @@ extension Favourable {
 
 
 struct Favourites {
-    static let coreDataStack = CoreDataStack(modelName: "FavouritesModel")
+    private static let coreDataStack = CoreDataStack(modelName: "FavouritesModel")
     
     
     static var quotes: [FavouriteQuote] {

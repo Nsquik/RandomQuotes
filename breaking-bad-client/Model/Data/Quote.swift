@@ -9,18 +9,17 @@ import Foundation
 import CoreData
 
 
-struct Quote<Source: QuoteSource>: Favourable {
+struct Quote: Favourable {
     let id: String
     let content: String
     let author: String
     let series: Series
     
     
-    static var random:  Quote? {
-        get async throws {
-            return try await Source.shared.getRandomQuote()
-        }
+    static func random(source: any QuoteSource) async throws -> Quote? {
+        return try await source.getRandomQuote()
     }
+
     
     
     typealias FavouriteModel = FavouriteQuote
