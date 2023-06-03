@@ -8,6 +8,11 @@
 import Foundation
 import CoreData
 
+enum CoreDataStackError: Error {
+    case deleteError
+}
+
+
 final class CoreDataStack {
     private let persistentContainer: NSPersistentContainer
     private let context: NSManagedObjectContext
@@ -39,9 +44,9 @@ final class CoreDataStack {
         saveContext()
     }
     
-    func removeObject<Entity: NSManagedObject>(_ entity: Entity) {
-        context.delete(entity)
-        saveContext()
+    func removeObject<Entity: NSManagedObject>(_ entity: Entity) throws {
+            context.delete(entity)
+            saveContext()
     }
     
     func fetchObjects<Entity: NSManagedObject>(_ modifyFetchRequest: ((NSFetchRequest<Entity>) -> Void)? = nil) throws -> [Entity] {

@@ -62,11 +62,17 @@ struct Favourites {
     static func delete<T: Favourable>(favourable: T) throws -> Bool {
         if let foundFavourite: T.FavouriteModel = try get(favourable: favourable)
         {
-            coreDataStack.removeObject(foundFavourite)
+            try coreDataStack.removeObject(foundFavourite)
             return true
         }
         
         return false
+    }
+    
+    static func delete(favourite: NSManagedObject) throws -> Bool {
+        
+            try coreDataStack.removeObject(favourite)
+            return true
     }
     
     static func update<T: Favourable>(favourable: T, updateFavourite: (_ favouriteEntity: T.FavouriteModel) -> T.FavouriteModel) throws {

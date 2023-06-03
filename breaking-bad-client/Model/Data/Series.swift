@@ -7,10 +7,21 @@
 
 import Foundation
 
-enum Series {
-    case breakingBad
-    case gameOfThrones
-    case betterCallSaul
+enum Series: String {
+    case breakingBad = "Breaking Bad"
+    case betterCallSaul = "Better Call Saul"
+    case gameOfThrones = "Game of Thrones"
+    
+    
+    
+    static func getSeries(rawValue: String?) -> Self? {
+        switch rawValue {
+            case "Breaking Bad": return Series.breakingBad
+            case "Better Call Saul": return Series.betterCallSaul
+            case "Game of Thrones": return Series.gameOfThrones
+            default: return nil
+        }
+    }
     
     func getFullName() -> String {
         switch self {

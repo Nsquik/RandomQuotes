@@ -16,30 +16,41 @@ struct FavouritesTabItemView: View {
     var body: some View {
         NavigationView {
             List{
-                Section("Breaking bad"){
-                    ForEach(favouritesStore.quotes ?? []){
+                !favouritesStore.breakingBadQuotes.isEmpty ? Section(Series.breakingBad.getFullName()){
+                    ForEach(favouritesStore.breakingBadQuotes){
                         Text($0.content ?? "...")
                     }
                     .onDelete{indexSet in
-                        
+                        favouritesStore.deleteQuote(indexSet, series: .breakingBad)
                     }
-                }
+                } : nil
+                !favouritesStore.betterCallSaulQuotes.isEmpty ? Section(Series.betterCallSaul.getFullName()){
+                    ForEach(favouritesStore.betterCallSaulQuotes){
+                        Text($0.content ?? "...")
+                    }
+                    .onDelete{indexSet in
+                        favouritesStore.deleteQuote(indexSet, series: .betterCallSaul)
+                    }
+                } : nil
+                !favouritesStore.gameOfThronesQuotes.isEmpty ? Section(Series.gameOfThrones.getFullName()){
+                    ForEach(favouritesStore.gameOfThronesQuotes){
+                        Text($0.content ?? "...")
+                    }
+                    .onDelete{indexSet in
+                        favouritesStore.deleteQuote(indexSet, series: .gameOfThrones)
+                    }
+                } : nil
             }
+            .navigationTitle("Your favourite quotes")
             .toolbar {
                 EditButton()
             }
 
         }
         .onAppear {
-            if case .success = favouritesStore.phase {}
-            else {
                 Task{
                     await favouritesStore.load()
                 }
-            }
-        }
-        .refreshable {
-            await favouritesStore.refresh()
         }
     }
 }
