@@ -33,6 +33,7 @@
 		B0FB9FAC2A2A871A00AFB806 /* FavouritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FAB2A2A871A00AFB806 /* FavouritesStore.swift */; };
 		B0FB9FB42A2A883B00AFB806 /* PhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB32A2A883B00AFB806 /* PhaseView.swift */; };
 		B0FB9FB62A2A8A2200AFB806 /* FavouritesTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB52A2A8A2200AFB806 /* FavouritesTabItemView.swift */; };
+		B0FB9FBA2A2D07D300AFB806 /* FavouritesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB92A2D07D300AFB806 /* FavouritesSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		B0FB9FAB2A2A871A00AFB806 /* FavouritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStore.swift; sourceTree = "<group>"; };
 		B0FB9FB32A2A883B00AFB806 /* PhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseView.swift; sourceTree = "<group>"; };
 		B0FB9FB52A2A8A2200AFB806 /* FavouritesTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTabItemView.swift; sourceTree = "<group>"; };
+		B0FB9FB92A2D07D300AFB806 /* FavouritesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				B0FB9FB52A2A8A2200AFB806 /* FavouritesTabItemView.swift */,
+				B0FB9FB92A2D07D300AFB806 /* FavouritesSectionView.swift */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				B06104732A1FF09600F47AA4 /* BetterCallSaulDataSource.swift in Sources */,
 				B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */,
 				B04662CF2A0D84AE00624FFC /* GameOfThronesDataSource.swift in Sources */,
+				B0FB9FBA2A2D07D300AFB806 /* FavouritesSectionView.swift in Sources */,
 				B05E0B732A0ABBB300931D3E /* BreakingBadDataSource.swift in Sources */,
 				B0FB9FB42A2A883B00AFB806 /* PhaseView.swift in Sources */,
 				B04A8A6C2A0E328B00F7CC26 /* DataSourceProtocol.swift in Sources */,

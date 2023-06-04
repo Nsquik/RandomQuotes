@@ -14,6 +14,11 @@ enum FetchableObjectPhase {
     case fail(error: String)
 }
 
+
+enum FetchableObjectError: Error {
+    case decoding
+}
+
 class FetchableObject: ObservableObject {
     
     @Published var phase: FetchableObjectPhase = .initial

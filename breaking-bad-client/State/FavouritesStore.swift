@@ -13,6 +13,9 @@ class FavouritesStore: FetchableObject {
     @Published var betterCallSaulQuotes: [FavouriteQuote] = []
     @Published var gameOfThronesQuotes: [FavouriteQuote] = []
     
+    @Published var quotes: [Series: [FavouriteQuote]] = [:]
+    
+    
     
     
     @MainActor
@@ -28,10 +31,8 @@ class FavouritesStore: FetchableObject {
         }catch {
             phase = .fail(error: error.localizedDescription)
         }
-        
     }
-    
-    @MainActor
+
     func deleteQuote(_ indexSet: IndexSet, series: Series) {
         guard let indexToDelete = indexSet.first else {
             return

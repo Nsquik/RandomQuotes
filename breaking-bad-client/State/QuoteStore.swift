@@ -32,13 +32,13 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
                 return
             }
             
-            let isQuoteFavourite = try Favourites.checkIsFavourite(favourable: fetchedQuote)
+            
             let fetchedCharacter = try await Character.getCharacter(name: fetchedQuote.author, source: Source.shared)
             
             quote = fetchedQuote
             author = fetchedCharacter
             phase = .success
-            isFavourite = isQuoteFavourite
+            try await checkIsFavourite()
         } catch {
             print(error)
             phase = .fail(error: error.localizedDescription)
@@ -59,6 +59,15 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
             }
         }catch{
             print(error)
+        }
+    }
+    
+    @MainActor
+    func checkIsFavourite() async throws {
+        
+        if let quote {
+            let isQuoteFavourite = try Favourites.checkIsFavourite(favourable: quote)
+            isFavourite = isQuoteFavourite
         }
     }
 }

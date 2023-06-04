@@ -83,5 +83,21 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48308250-E41C-4925-A5B2-FADE8CC8DF66"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "breaking-bad-client/UI/Favourites/FavouritesTabItemView.swift"
+            startingColumnNumber = "42"
+            endingColumnNumber = "42"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "favouritesStore"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

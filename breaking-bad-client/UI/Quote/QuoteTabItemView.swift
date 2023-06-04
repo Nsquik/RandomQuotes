@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct QuoteTabItemView<Source: QuoteDataSource>: View {
-    @StateObject var quoteStore: QuoteStore<Source>
+    @ObservedObject var quoteStore: QuoteStore<Source>
+    
     
     var body: some View {
         ScrollView {
@@ -22,7 +23,11 @@ struct QuoteTabItemView<Source: QuoteDataSource>: View {
             }
         }
         .onAppear {
-            if case .success = quoteStore.phase {}
+            if case .success = quoteStore.phase {
+                Task{
+                    try await quoteStore.checkIsFavourite()
+                }
+            }
             else {
                 Task{
                     await quoteStore.load()
@@ -38,7 +43,7 @@ struct QuoteTabItemView<Source: QuoteDataSource>: View {
 
 struct QuoteTabItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let quoteStore = QuoteStore<GameOfThronesDataSource>(series: .gameOfThrones)
+        let quoteStore = QuoteStore<BreakingBadDataSource>(series: .breakingBad)
         QuoteTabItemView(quoteStore: quoteStore)
             .preferredColorScheme(.dark)
     }

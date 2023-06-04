@@ -8,57 +8,34 @@
 import SwiftUI
 
 struct FavouritesTabItemView: View {
-    @StateObject var favouritesStore: FavouritesStore
-    @State var editMode = EditMode.active
-    @State private var multiSelection = Set<UUID>()
-
+    @ObservedObject var favouritesStore: FavouritesStore
+    
     
     var body: some View {
         NavigationView {
             List{
-                !favouritesStore.breakingBadQuotes.isEmpty ? Section(Series.breakingBad.getFullName()){
-                    ForEach(favouritesStore.breakingBadQuotes){
-                        Text($0.content ?? "...")
-                    }
-                    .onDelete{indexSet in
-                        favouritesStore.deleteQuote(indexSet, series: .breakingBad)
-                    }
-                } : nil
-                !favouritesStore.betterCallSaulQuotes.isEmpty ? Section(Series.betterCallSaul.getFullName()){
-                    ForEach(favouritesStore.betterCallSaulQuotes){
-                        Text($0.content ?? "...")
-                    }
-                    .onDelete{indexSet in
-                        favouritesStore.deleteQuote(indexSet, series: .betterCallSaul)
-                    }
-                } : nil
-                !favouritesStore.gameOfThronesQuotes.isEmpty ? Section(Series.gameOfThrones.getFullName()){
-                    ForEach(favouritesStore.gameOfThronesQuotes){
-                        Text($0.content ?? "...")
-                    }
-                    .onDelete{indexSet in
-                        favouritesStore.deleteQuote(indexSet, series: .gameOfThrones)
-                    }
-                } : nil
-            }
-            .navigationTitle("Your favourite quotes")
-            .toolbar {
-                EditButton()
-            }
-
-        }
-        .onAppear {
-                Task{
-                    await favouritesStore.load()
+                FavouritesSectionView(quotes: favouritesStore.breakingBadQuotes, series: .breakingBad, onDelete: favouritesStore.deleteQuote)
+                FavouritesSectionView(quotes: favouritesStore.betterCallSaulQuotes, series: .betterCallSaul, onDelete: favouritesStore.deleteQuote)
+                FavouritesSectionView(quotes: favouritesStore.gameOfThronesQuotes, series: .gameOfThrones, onDelete: favouritesStore.deleteQuote)
                 }
+                .navigationTitle("Your favourite quotes")
+                .toolbar {
+                    EditButton()
+                }
+
+            }
+            .onAppear {
+                    Task{
+                        await favouritesStore.load()
+                    }
+            }
         }
     }
-}
 
-struct FavouritesTabItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        let favouritesStore = FavouritesStore()
-        
-        FavouritesTabItemView(favouritesStore: favouritesStore)
+    struct FavouritesTabItemView_Previews: PreviewProvider {
+        static var previews: some View {
+            let favouritesStore = FavouritesStore()
+            
+            FavouritesTabItemView(favouritesStore: favouritesStore)
+        }
     }
-}
