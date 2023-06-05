@@ -196,7 +196,6 @@
 			children = (
 				B0FB9FAD2A2A874F00AFB806 /* UI */,
 				B0A529462A01BCB6005EA3F1 /* Model */,
-				B05E0B662A06F1BB00931D3E /* State */,
 				B0A5291A2A01B5CE005EA3F1 /* breaking_bad_clientApp.swift */,
 				B0A5291E2A01B5CF005EA3F1 /* Assets.xcassets */,
 				B0A529202A01B5CF005EA3F1 /* Preview Content */,
@@ -250,6 +249,7 @@
 		B0FB9FAD2A2A874F00AFB806 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B05E0B662A06F1BB00931D3E /* State */,
 				B0FB9FB02A2A882600AFB806 /* Common */,
 				B0FB9FAF2A2A877700AFB806 /* Favourites */,
 				B0FB9FAE2A2A877300AFB806 /* Quote */,
