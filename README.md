@@ -3,8 +3,6 @@
 
 https://github.com/Nsquik/RandomQuotes/assets/46610139/f5c432c8-44ff-478f-94c6-3eed29d29d4d
 
-It was meant to be named `Breaking Bad Quotes`, but changed during the process 😄
-
 ## Introduction
 
 Random Quotes is my first encounter with Swift and SwiftUI, as I decided to self-learn the Apple's ecosystem. The main focus of Random Quotes App is to fetch and display random quotes from various APIs, providing users with an interactive interface to browse and save their favorite quotes.
