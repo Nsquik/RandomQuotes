@@ -31,8 +31,7 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
                 phase = .fail(error: "Failed fetching quote")
                 return
             }
-            
-            
+
             let fetchedCharacter = try await Character.getCharacter(name: fetchedQuote.author, source: Source.shared)
             
             quote = fetchedQuote
@@ -48,8 +47,13 @@ class QuoteStore<Source: QuoteDataSource>: FetchableObject {
     @MainActor
     func saveAsFavourite() {
         do{
-            if let author, let quote {
-                let favCharacter = try Favourites.add(favourable: author)
+            var favCharacter: FavouriteCharacter?
+            
+            if let author {
+                favCharacter = try Favourites.add(favourable: author)
+            }
+            if let quote {
+                
                 _ = try Favourites.add(favourable: quote, addRelations: {
                     favQuote in
                     favQuote.character = favCharacter

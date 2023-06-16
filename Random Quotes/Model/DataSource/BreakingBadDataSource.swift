@@ -8,8 +8,8 @@
 import Foundation
 
 struct BreakingBadDataSource: BreakingBadDataSourceProtocol {
-    var series: Series = Series.breakingBad
-    var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
+    let series: Series = Series.breakingBad
+    let baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
     
     public static let shared = BreakingBadDataSource()
 }

@@ -19,6 +19,7 @@ final class CoreDataStack {
 
     init(modelName: String) {
         persistentContainer = NSPersistentContainer(name: modelName)
+        persistentContainer.persistentStoreDescriptions.first?.url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.Random-Quotes-Group")?.appending(path: "Random Quotes.sqlite")
         persistentContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")

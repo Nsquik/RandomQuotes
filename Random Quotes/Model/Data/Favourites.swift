@@ -30,12 +30,19 @@ struct Favourites {
     
     static var quotes: [FavouriteQuote] {
         get throws {
-                do {
                     let favouriteQuotes: [FavouriteQuote] = try coreDataStack.fetchObjects()
                     return favouriteQuotes
-                } catch {
-                    throw error
+        }
+    }
+    
+    static var lastQuote: FavouriteQuote? {
+        get throws {
+                let favouriteQuotes: [FavouriteQuote] = try coreDataStack.fetchObjects {
+                    request in
+                    request.fetchBatchSize = 1
                 }
+                
+                return favouriteQuotes.last
         }
     }
     
@@ -76,15 +83,11 @@ struct Favourites {
     }
     
     static func update<T: Favourable>(favourable: T, updateFavourite: (_ favouriteEntity: T.FavouriteModel) -> T.FavouriteModel) throws {
-        do {
             if let favouriteEntity: T.FavouriteModel = try get(favourable: favourable)
             {
                 _ = updateFavourite(favouriteEntity);
                 coreDataStack.saveContext()
             }
-        } catch {
-            throw error
-        }
     }
     
     

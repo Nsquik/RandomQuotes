@@ -9,8 +9,8 @@ import Foundation
 
 
 struct BetterCallSaulDataSource: BreakingBadDataSourceProtocol {
-    var series: Series = Series.betterCallSaul
-    var baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
+    let series: Series = Series.betterCallSaul
+    let baseURL = URL(string: "https://breaking-bad-api-six.vercel.app/api")!
     
     public static let shared = BetterCallSaulDataSource()
 }

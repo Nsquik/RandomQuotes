@@ -13,6 +13,17 @@
 		B04A8A712A0EAA6900F7CC26 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A702A0EAA6900F7CC26 /* Favourites.swift */; };
 		B04A8A742A0EAD4900F7CC26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04A8A732A0EAD4900F7CC26 /* CoreData.framework */; };
 		B04A8A7B2A0EDC1E00F7CC26 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */; };
+		B0532F832A3C7A0A007ADEE9 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A529492A01BD95005EA3F1 /* Quote.swift */; };
+		B0532F842A3C7A13007ADEE9 /* GameOfThronesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04662CE2A0D84AE00624FFC /* GameOfThronesDataSource.swift */; };
+		B0532F852A3C7A15007ADEE9 /* BreakingBadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B722A0ABBB300931D3E /* BreakingBadDataSource.swift */; };
+		B0532F862A3C7A17007ADEE9 /* BetterCallSaulDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06104722A1FF09600F47AA4 /* BetterCallSaulDataSource.swift */; };
+		B0532F872A3C80BC007ADEE9 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* Fetch.swift */; };
+		B0532F882A3C80C0007ADEE9 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A6B2A0E328B00F7CC26 /* DataSourceProtocol.swift */; };
+		B0532F892A3C80CA007ADEE9 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B752A0AC2CA00931D3E /* Series.swift */; };
+		B0532F8A2A3C80CE007ADEE9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294B2A01C525005EA3F1 /* Character.swift */; };
+		B0532F8B2A3C80D5007ADEE9 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A702A0EAA6900F7CC26 /* Favourites.swift */; };
+		B0532F8C2A3C80DD007ADEE9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */; };
+		B0532F8D2A3C80EF007ADEE9 /* FavouritesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B061047A2A1FFA3200F47AA4 /* FavouritesModel.xcdatamodeld */; };
 		B05E0B682A06F30300931D3E /* FetchableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B672A06F30300931D3E /* FetchableObject.swift */; };
 		B05E0B6A2A06F3C600931D3E /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B692A06F3C600931D3E /* QuoteStore.swift */; };
 		B05E0B702A06FAFE00931D3E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E0B6F2A06FAFE00931D3E /* QuoteView.swift */; };
@@ -27,11 +38,27 @@
 		B0A5294A2A01BD95005EA3F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A529492A01BD95005EA3F1 /* Quote.swift */; };
 		B0A5294C2A01C525005EA3F1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294B2A01C525005EA3F1 /* Character.swift */; };
 		B0A5294E2A01C69B005EA3F1 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5294D2A01C69B005EA3F1 /* Fetch.swift */; };
+		B0B90BC82A3BB3CA00C1687F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B90BB02A3BB1EA00C1687F /* WidgetKit.framework */; };
+		B0B90BC92A3BB3CA00C1687F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B90BB22A3BB1EA00C1687F /* SwiftUI.framework */; };
+		B0B90BCC2A3BB3CA00C1687F /* Random_Quotes_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B90BCB2A3BB3CA00C1687F /* Random_Quotes_WidgetBundle.swift */; };
+		B0B90BCE2A3BB3CA00C1687F /* Random_Quotes_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B90BCD2A3BB3CA00C1687F /* Random_Quotes_Widget.swift */; };
+		B0B90BD02A3BB3CB00C1687F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B90BCF2A3BB3CB00C1687F /* Assets.xcassets */; };
+		B0B90BD42A3BB3CB00C1687F /* Random Quotes WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B0B90BC72A3BB3CA00C1687F /* Random Quotes WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0FB9FAC2A2A871A00AFB806 /* FavouritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FAB2A2A871A00AFB806 /* FavouritesStore.swift */; };
 		B0FB9FB42A2A883B00AFB806 /* PhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB32A2A883B00AFB806 /* PhaseView.swift */; };
 		B0FB9FB62A2A8A2200AFB806 /* FavouritesTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB52A2A8A2200AFB806 /* FavouritesTabItemView.swift */; };
 		B0FB9FBA2A2D07D300AFB806 /* FavouritesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB9FB92A2D07D300AFB806 /* FavouritesSectionView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0B90BD22A3BB3CB00C1687F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0A5290F2A01B5CE005EA3F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B90BC62A3BB3CA00C1687F;
+			remoteInfo = "Random Quotes WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B0B90BC22A3BB1EB00C1687F /* Embed Foundation Extensions */ = {
@@ -40,6 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				B0B90BD42A3BB3CB00C1687F /* Random Quotes WidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +81,7 @@
 		B04A8A702A0EAA6900F7CC26 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		B04A8A732A0EAD4900F7CC26 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B04A8A7A2A0EDC1E00F7CC26 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B0532F7F2A3BB85D007ADEE9 /* Random Quotes WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Random Quotes WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		B05E0B672A06F30300931D3E /* FetchableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableObject.swift; sourceTree = "<group>"; };
 		B05E0B692A06F3C600931D3E /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
 		B05E0B6F2A06FAFE00931D3E /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -70,6 +99,12 @@
 		B0A5294D2A01C69B005EA3F1 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 		B0B90BB02A3BB1EA00C1687F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B0B90BB22A3BB1EA00C1687F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B0B90BC72A3BB3CA00C1687F /* Random Quotes WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Random Quotes WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B90BCB2A3BB3CA00C1687F /* Random_Quotes_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random_Quotes_WidgetBundle.swift; sourceTree = "<group>"; };
+		B0B90BCD2A3BB3CA00C1687F /* Random_Quotes_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random_Quotes_Widget.swift; sourceTree = "<group>"; };
+		B0B90BCF2A3BB3CB00C1687F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0B90BD12A3BB3CB00C1687F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B90BD92A3BB5B500C1687F /* Random Quotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Random Quotes.entitlements"; sourceTree = "<group>"; };
 		B0FB9FAB2A2A871A00AFB806 /* FavouritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStore.swift; sourceTree = "<group>"; };
 		B0FB9FB32A2A883B00AFB806 /* PhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseView.swift; sourceTree = "<group>"; };
 		B0FB9FB52A2A8A2200AFB806 /* FavouritesTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTabItemView.swift; sourceTree = "<group>"; };
@@ -82,6 +117,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04A8A742A0EAD4900F7CC26 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0B90BC42A3BB3CA00C1687F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B90BC92A3BB3CA00C1687F /* SwiftUI.framework in Frameworks */,
+				B0B90BC82A3BB3CA00C1687F /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A529192A01B5CE005EA3F1 /* Random Quotes */,
+				B0B90BCA2A3BB3CA00C1687F /* Random Quotes Widget */,
 				B0A529182A01B5CE005EA3F1 /* Products */,
 				B04A8A722A0EAD4900F7CC26 /* Frameworks */,
 			);
@@ -161,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A529172A01B5CE005EA3F1 /* Random Quotes.app */,
+				B0B90BC72A3BB3CA00C1687F /* Random Quotes WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +214,7 @@
 		B0A529192A01B5CE005EA3F1 /* Random Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				B0B90BD92A3BB5B500C1687F /* Random Quotes.entitlements */,
 				B0FB9FAD2A2A874F00AFB806 /* UI */,
 				B0A529462A01BCB6005EA3F1 /* Model */,
 				B0A5291A2A01B5CE005EA3F1 /* RandomQuotesApp.swift */,
@@ -193,6 +240,18 @@
 				B05E0B652A06F19F00931D3E /* Data */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B0B90BCA2A3BB3CA00C1687F /* Random Quotes Widget */ = {
+			isa = PBXGroup;
+			children = (
+				B0532F7F2A3BB85D007ADEE9 /* Random Quotes WidgetExtension.entitlements */,
+				B0B90BCB2A3BB3CA00C1687F /* Random_Quotes_WidgetBundle.swift */,
+				B0B90BCD2A3BB3CA00C1687F /* Random_Quotes_Widget.swift */,
+				B0B90BCF2A3BB3CB00C1687F /* Assets.xcassets */,
+				B0B90BD12A3BB3CB00C1687F /* Info.plist */,
+			);
+			path = "Random Quotes Widget";
 			sourceTree = "<group>";
 		};
 		B0FB9FAA2A29255700AFB806 /* Models */ = {
@@ -256,11 +315,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				B0B90BD32A3BB3CB00C1687F /* PBXTargetDependency */,
 			);
 			name = "Random Quotes";
 			productName = "breaking-bad-client";
 			productReference = B0A529172A01B5CE005EA3F1 /* Random Quotes.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B0B90BC62A3BB3CA00C1687F /* Random Quotes WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0B90BD52A3BB3CB00C1687F /* Build configuration list for PBXNativeTarget "Random Quotes WidgetExtension" */;
+			buildPhases = (
+				B0B90BC32A3BB3CA00C1687F /* Sources */,
+				B0B90BC42A3BB3CA00C1687F /* Frameworks */,
+				B0B90BC52A3BB3CA00C1687F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Random Quotes WidgetExtension";
+			productName = "Random Quotes WidgetExtension";
+			productReference = B0B90BC72A3BB3CA00C1687F /* Random Quotes WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -273,6 +350,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					B0A529162A01B5CE005EA3F1 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					B0B90BC62A3BB3CA00C1687F = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
@@ -291,6 +371,7 @@
 			projectRoot = "";
 			targets = (
 				B0A529162A01B5CE005EA3F1 /* Random Quotes */,
+				B0B90BC62A3BB3CA00C1687F /* Random Quotes WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -302,6 +383,14 @@
 			files = (
 				B0A529222A01B5CF005EA3F1 /* Preview Assets.xcassets in Resources */,
 				B0A5291F2A01B5CF005EA3F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0B90BC52A3BB3CA00C1687F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B90BD02A3BB3CB00C1687F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +425,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0B90BC32A3BB3CA00C1687F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0532F882A3C80C0007ADEE9 /* DataSourceProtocol.swift in Sources */,
+				B0B90BCC2A3BB3CA00C1687F /* Random_Quotes_WidgetBundle.swift in Sources */,
+				B0532F8D2A3C80EF007ADEE9 /* FavouritesModel.xcdatamodeld in Sources */,
+				B0532F842A3C7A13007ADEE9 /* GameOfThronesDataSource.swift in Sources */,
+				B0532F8C2A3C80DD007ADEE9 /* CoreDataStack.swift in Sources */,
+				B0532F832A3C7A0A007ADEE9 /* Quote.swift in Sources */,
+				B0532F872A3C80BC007ADEE9 /* Fetch.swift in Sources */,
+				B0532F862A3C7A17007ADEE9 /* BetterCallSaulDataSource.swift in Sources */,
+				B0532F892A3C80CA007ADEE9 /* Series.swift in Sources */,
+				B0532F8B2A3C80D5007ADEE9 /* Favourites.swift in Sources */,
+				B0532F8A2A3C80CE007ADEE9 /* Character.swift in Sources */,
+				B0532F852A3C7A15007ADEE9 /* BreakingBadDataSource.swift in Sources */,
+				B0B90BCE2A3BB3CA00C1687F /* Random_Quotes_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0B90BD32A3BB3CB00C1687F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B90BC62A3BB3CA00C1687F /* Random Quotes WidgetExtension */;
+			targetProxy = B0B90BD22A3BB3CB00C1687F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B0A529392A01B5CF005EA3F1 /* Debug */ = {
@@ -456,8 +573,11 @@
 		B0A5293C2A01B5CF005EA3F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Random Quotes/Random Quotes.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Random Quotes/Preview Content\"";
@@ -474,8 +594,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random Quotes";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random-Quotes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,8 +606,11 @@
 		B0A5293D2A01B5CF005EA3F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Random Quotes/Random Quotes.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Random Quotes/Preview Content\"";
@@ -503,8 +627,65 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random Quotes";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random-Quotes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B0B90BD62A3BB3CB00C1687F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Random Quotes Widget/Random Quotes WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y956GUH3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Random Quotes Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Random Quotes Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random-Quotes.Random-Quotes-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0B90BD72A3BB3CB00C1687F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Random Quotes Widget/Random Quotes WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8Y956GUH3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Random Quotes Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Random Quotes Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.nsquik.Random-Quotes.Random-Quotes-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -528,6 +709,15 @@
 			buildConfigurations = (
 				B0A5293C2A01B5CF005EA3F1 /* Debug */,
 				B0A5293D2A01B5CF005EA3F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0B90BD52A3BB3CB00C1687F /* Build configuration list for PBXNativeTarget "Random Quotes WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0B90BD62A3BB3CB00C1687F /* Debug */,
+				B0B90BD72A3BB3CB00C1687F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
