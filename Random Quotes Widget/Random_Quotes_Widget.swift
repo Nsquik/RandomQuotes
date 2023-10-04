@@ -50,8 +50,10 @@ struct Random_Quotes_WidgetEntryView : View {
         VStack{
             Text(quoteToDisplay)
                 .padding(.all, 20)
-        }
+        }.widgetBackground(Color.clear)
     }
+    
+
 }
 
 struct Random_Quotes_Widget: Widget {
@@ -70,5 +72,17 @@ struct Random_Quotes_Widget_Previews: PreviewProvider {
     static var previews: some View {
         Random_Quotes_WidgetEntryView(entry: SimpleEntry(date: Date(), quote: "Can a man still be brave if he's afraid? That is the only time a man can be brave."))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+
+extension View {
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
     }
 }
